@@ -1,0 +1,129 @@
+#!/usr/bin/env bash
+
+INPUT_FILE=""
+INPUT_DIR=""
+OUTPUT_FILE=""
+
+COMPILER=""
+COMPILER_OPTS=""
+
+MAKEFILE=""
+
+ERRS=0
+
+run_ghci_compiler() {
+  OUTPUT_FILE="${INPUT_FILE%.*}"
+  GHCI_COMMAND="ghc "$COMPILER_OPTS" -o "$OUTPUT_FILE" "$INPUT_FILE""
+  
+  echo CMD: "$GHCI_COMMAND"
+  
+  $GHCI_COMMAND
+}
+
+run_clng_compiler() {
+  OUTPUT_FILE="${INPUT_FILE%.*}"
+
+  CLNG_COMMAND="clang $COMPILER_OPTS $INPUT_FILE -o $OUTPUT_FILE -fsanitize=undefined -fsanitize=address"
+  
+  echo CMD: "$CLNG_COMMAND"
+  
+  $CLNG_COMMAND
+}
+
+run_make_compiler() {
+  cd $INPUT_DIR
+
+  OUTPUT_FILE="${INPUT_FILE%.*}"
+  MAKE="${OUTPUT_FILE#"$INPUT_DIR/"}"
+  MAKE_COMMAND="make $MAKE"
+
+  echo "CMD: $MAKE_COMMAND"
+  
+  $MAKE_COMMAND
+}
+
+usage() {
+  cat compile.txt | less
+}
+
+while getopts ":h:mc:i:r" opts; do 
+
+  case "${opts}" in 
+    h)
+      FLAG_H=1
+      INPUT_FILE="$OPTARG"
+      COMPILER=run_ghci_compiler
+      ;;
+    c)
+      FLAG_C=1
+      INPUT_FILE="$OPTARG"
+      INPUT_DIR="${INPUT_FILE%/*}"
+      INPUT_DIR_CONTENTS=$(dir $INPUT_DIR)
+
+      for file in $INPUT_DIR_CONTENTS; do 
+        if [[ " $file " =~ .*\ Makefile\ .* ]]; then
+          MAKEFILE=1
+          break
+        fi
+      done;
+
+      if [[ "$MAKEFILE" && $FLAG_M ]]; then
+        COMPILER=run_make_compiler
+      else
+        COMPILER_OPTS="-std=c11 -Wall -pedantic -g"
+        COMPILER=run_clng_compiler
+      fi
+      ;;
+    i)
+      FLAG_I=1
+      echo "Setting opt $OPTARG"
+      COMPILER_OPTS="$COMPILER_OPTS $OPTARG"
+      ;;
+    m)
+      FLAG_M=1
+      ;;
+    r)
+      FLAG_R=1
+      ;;
+    \?) 
+      echo "Something is weird"
+      ;;
+    *)
+      echo "Something is even weirder."
+      ;;
+  esac
+
+done
+
+if [ ! $1 ]; then
+  usage
+  exit 1
+fi
+
+if [ ! "$COMPILER" ]; then
+  echo "There seems to be an error - did specify the -h or -c option?"
+  ERRS=$((ERRS + 1))
+fi
+
+if [ ! "$INPUT_FILE" ]; then 
+  echo "An input file is needed to continue"
+  ERRS=$((ERRS + 1))
+fi
+
+if [ ! -f "$INPUT_FILE" ]; then
+  echo "File not found: $INPUT_FILE"
+  ERRS=$((ERRS + 1))
+fi
+
+if [[ ERRS -gt 0 ]]; then
+  echo "WRN: $ERRS errors occured."
+  exit 1
+fi
+
+$COMPILER $INPUT_FILE
+
+if [ "$FLAG_R" ]; then
+  $OUTPUT_FILE
+fi
+
+exit 0

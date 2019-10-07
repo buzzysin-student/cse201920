@@ -1,0 +1,56 @@
+COMPILE Taharka Okai - (c) 2019 
+
+=========
+= Usage =
+=========
+  
+---------
+C Options
+---------
+-c <path> *
+  Compile the C source script located at <path> (*required)
+  using 'clang'
+
+  Example: 
+  ./compile -c ./c/program.c # Outputs a file './c/program'
+
+-m
+  Note: If used, it must be used with -c.
+  Note: If used, the Makefile command must have the same name
+        as the source file.
+
+  Tells this program to use the Makefile located in the same
+  directory as <path> instead of 'clang'
+
+  Example:
+  ./compile -mc ./c/program.c # Or ./compile -m -c ./c/program.c
+                              # Uses Makefile commands instead
+                              # of 'clang'
+
+---------------
+Haskell Options
+---------------
+-h <path> *
+  Compile the Haskell source script located at <path> (*required)
+  using 'ghc'
+
+  Example: 
+  $ ./compile ./haskell/program.hs # Outputs a file './haskell/program'
+                                   # and others.
+
+--------------
+Global options
+--------------
+-i <\"--some options -a in here\">
+  (I)nsert extra options to the compiler
+
+-r
+  (R)un the program that you compiled
+
+  Note: This will only be useful when compiling single files.
+  
+Any queries? Post an issue at:
+https://github.com/buzzysin/cse2019/issues
+
+Or hit me up with an email:
+zp19374@bristol.ac.uk
