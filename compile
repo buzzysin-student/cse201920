@@ -7,13 +7,20 @@ OUTPUT_FILE=""
 COMPILER=""
 COMPILER_OPTS=""
 
+PROGRAM_OPTS=""
+
 MAKEFILE=""
 
 ERRS=0
 
 run_ghci_compiler() {
   OUTPUT_FILE="${INPUT_FILE%.*}"
-  GHCI_COMMAND="ghc "$COMPILER_OPTS" -o "$OUTPUT_FILE" "$INPUT_FILE""
+
+  if [ $FLAG_G ]; then
+    GHCI_COMMAND="ghci $COMPILER_OPTS $INPUT_FILE"
+  else
+    GHCI_COMMAND="ghc "$COMPILER_OPTS" -o "$OUTPUT_FILE" "$INPUT_FILE""
+  fi
   
   echo CMD: "$GHCI_COMMAND"
   
@@ -46,14 +53,23 @@ usage() {
   cat compile.txt | less
 }
 
-while getopts ":h:mc:i:r" opts; do 
+H_OPTS="gh:"
+C_OPTS="mc:"
+G_OPTS="i:a:r"
+
+while getopts ":$H_OPTS$C_OPTS$G_OPTS" opts; do 
 
   case "${opts}" in 
+    # Haskell Options
     h)
       FLAG_H=1
       INPUT_FILE="$OPTARG"
       COMPILER=run_ghci_compiler
       ;;
+    g)
+      FLAG_G=1
+      ;;
+    # C Options
     c)
       FLAG_C=1
       INPUT_FILE="$OPTARG"
@@ -74,17 +90,22 @@ while getopts ":h:mc:i:r" opts; do
         COMPILER=run_clng_compiler
       fi
       ;;
-    i)
-      FLAG_I=1
-      echo "Setting opt $OPTARG"
-      COMPILER_OPTS="$COMPILER_OPTS $OPTARG"
-      ;;
     m)
       FLAG_M=1
+      ;;
+    # Global Options
+    i)
+      FLAG_I=1
+      COMPILER_OPTS="$COMPILER_OPTS $OPTARG"
       ;;
     r)
       FLAG_R=1
       ;;
+    a)
+      FLAG_A=1
+      PROGRAM_OPTS="$OPTARG"
+      ;;
+    # Other Options
     \?) 
       echo "Something is weird"
       ;;
@@ -120,10 +141,11 @@ if [[ ERRS -gt 0 ]]; then
   exit 1
 fi
 
-$COMPILER $INPUT_FILE
+"$COMPILER" "$INPUT_FILE"
 
 if [ "$FLAG_R" ]; then
-  $OUTPUT_FILE
+  echo CMD: "$OUTPUT_FILE $PROGRAM_OPTS"
+  $OUTPUT_FILE $PROGRAM_OPTS
 fi
 
 exit 0

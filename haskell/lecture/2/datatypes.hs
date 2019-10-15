@@ -33,7 +33,7 @@ data Either a b = Left a | Right b
 -- Example Type Addition
 
 {- 
- ! TODO: Type addition examples 
+ TODO: Type addition examples 
  -}
 
 -- Types can be multiplied together
@@ -47,5 +47,5 @@ data (a,b) = (a,b)
 -- Example type multiplication
 
 {- 
- ! TODO: Type mutiplication examples 
+ TODO: Type mutiplication examples 
  -}

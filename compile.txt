@@ -1,56 +1,89 @@
 COMPILE Taharka Okai - (c) 2019 
 
+[TL;DR]
+
+/////////////////
+// All options //
+// =========== //
+//  cm/hg/ira  //
+/////////////////
+
 =========
 = Usage =
 =========
-  
+
 ---------
 C Options
 ---------
 -c <path> *
-  Compile the C source script located at <path> (*required)
+  Compile the (C) source script located at <path> (*required)
   using 'clang'
 
   Example: 
   ./compile -c ./c/program.c # Outputs a file './c/program'
 
 -m
-  Note: If used, it must be used with -c.
-  Note: If used, the Makefile command must have the same name
-        as the source file.
-
-  Tells this program to use the Makefile located in the same
+  Tells this program to use the (M)akefile located in the same
   directory as <path> instead of 'clang'
 
   Example:
   ./compile -mc ./c/program.c # Or ./compile -m -c ./c/program.c
                               # Uses Makefile commands instead
                               # of 'clang'
+  
+  Note: If used, it must be used with -c.
+  Note: If used, the Makefile command must have the same name
+        as the source file.
 
 ---------------
 Haskell Options
 ---------------
 -h <path> *
-  Compile the Haskell source script located at <path> (*required)
+  Compile the (H)askell source script located at <path> (*required)
   using 'ghc'
 
   Example: 
-  $ ./compile ./haskell/program.hs # Outputs a file './haskell/program'
-                                   # and others.
+  $ ./compile -h ./haskell/program.hs # Outputs a file './haskell/program'
+                                      # and others.
+
+-g
+  (G)HCI intepreter is loaded instead of compiling the source file.
+
+  Example: 
+  $ ./complie -gh ./haskell/program.hs
+
+  Note: If used, it must be used with -h.
 
 --------------
 Global options
 --------------
--i <\"--some options -a in here\">
+-i <"--some options -in here">
   (I)nsert extra options to the compiler
+
+  Example: 
+  $ ./compile -gh ./haskell/program.hs -i "-H32m"
 
 -r
   (R)un the program that you compiled
 
   Note: This will only be useful when compiling single files.
-  
+
+  Example: 
+  $ ./compile -rc ./c/program.c
+  ...
+  Hello World!
+
+-a <"--some options -a in here">
+  (A)rguments to pass to the program, if it takes arguments
+
+  Example: 
+  $ ./compile -gh ./haskell/program.hs -ra "--numbers 1 2 3 --letters a b c"
+
+  Note: If used, it must be used with -r
+
+
 Any queries? Post an issue at:
-https://github.com/buzzysin/cse2019/issues
+https://github.com/buzzysin/cse201920/issues
 
 Or hit me up with an email:
 zp19374@bristol.ac.uk
