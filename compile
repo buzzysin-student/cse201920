@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
 
+# File parameters
 INPUT_FILE=""
 INPUT_DIR=""
 OUTPUT_FILE=""
 
+# Compiler parameters
 COMPILER=""
 COMPILER_OPTS=""
-
 PROGRAM_OPTS=""
-
 MAKEFILE=""
 
+# Error parameters
 ERRS=0
 
 run_ghci_compiler() {
@@ -141,7 +142,12 @@ if [[ ERRS -gt 0 ]]; then
   exit 1
 fi
 
+if [[ -f %OUTPUT_FILE ]]; then 
+  rm -rf $OUTPUT_FILE
+fi
+
 "$COMPILER" "$INPUT_FILE"
+
 
 if [ "$FLAG_R" ]; then
   echo CMD: "$OUTPUT_FILE $PROGRAM_OPTS"
