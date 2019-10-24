@@ -40,14 +40,18 @@ int main(void)
    */
   int i, j, k = 137;
   int a[3] = {2, 4, 6};
-  
-  // ? Pointer to an int variable
+
+  // ? Pointer to an int variable (pointer keeps type information)
   int *p; // ! Pointer to nowhere (? random location)!
 
   // ? the `&` in &var returns the ADDRESS of the value, not the value itself
   p = &k; // ? Now points to the integer at the address of `k`
 
   // ! Additionally, the pointer refers to the first byte at `k`
+
+  // ? Addresses can be printed as an 8-byte representation using the
+  // ? %p conversion specifier
+  printf("%p", p);
 
   return 0;
 }

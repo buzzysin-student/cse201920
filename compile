@@ -10,6 +10,7 @@ COMPILER=""
 COMPILER_OPTS=""
 PROGRAM_OPTS=""
 MAKEFILE=""
+OLD_DIR=$PWD
 
 # Error parameters
 ERRS=0
@@ -142,12 +143,15 @@ if [[ ERRS -gt 0 ]]; then
   exit 1
 fi
 
-if [[ -f %OUTPUT_FILE ]]; then 
+if [[ -f $OUTPUT_FILE ]]; then 
   rm -rf $OUTPUT_FILE
 fi
 
 "$COMPILER" "$INPUT_FILE"
 
+if [ "$FLAG_M" ]; then 
+  cd $OLD_DIR
+fi
 
 if [ "$FLAG_R" ]; then
   echo CMD: "$OUTPUT_FILE $PROGRAM_OPTS"

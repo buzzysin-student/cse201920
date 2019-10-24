@@ -7,8 +7,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Added library
-#include <math.h>
+enum CustomLimits
+{
+  TRI_SIDES = 3,
+  CHR_MIN = 0,
+  CHR_MAX = 48,
+  NUM_MIN = 0,
+  NUM_MAX = 10
+};
 
 // CW: Returns the smallest/largest side in an array of triangle sides
 long getExtreme(int n, unsigned long sides[], bool extreme)
@@ -46,7 +52,7 @@ int triValidity(int a, int b, int c)
 {
   unsigned long sides[3] = {a, b, c};
   // E.g. a
-  unsigned long sideMax = getExtreme(3, sides, 1);
+  unsigned long sideMax = getExtreme(TRI_SIDES, sides, 1);
   // E.g. a + b + c
   unsigned long sideSum = (unsigned long)a + (unsigned long)b + (unsigned long)c;
   // e.g b + c
@@ -100,20 +106,33 @@ int triIsRight(int a, int b, int c)
 
   // a ^ 2 + b ^ 2 == c ^ 2 ? yup : nope
   return (
-    a2 + b2 == c2 ||
-    b2 + c2 == a2 || 
-    c2 + a2 == b2 ) ? 1 : 0;
+             a2 + b2 == c2 ||
+             b2 + c2 == a2 ||
+             c2 + a2 == b2)
+             ? 1
+             : 0;
 }
 
 // CW: Helper function - returns the value of n ^ pow
 long getPower(int n, int pow)
 {
-  if (pow == 0) return 1;
-  else return n * getPower(n, pow - 1);
+  if (pow == 0)
+    return 1;
+  else
+    return n * getPower(n, pow - 1);
 }
 
 // Integer constants representing types of triangle.
-enum { Equilateral, Isosceles, Right, Scalene, Flat, Impossible, Illegal };
+enum
+{
+  Equilateral,
+  Isosceles,
+  Right,
+  Scalene,
+  Flat,
+  Impossible,
+  Illegal
+};
 
 // Convert a string into an integer.  Return -1 if it is not valid.
 int convert(const char length[])
@@ -122,19 +141,23 @@ int convert(const char length[])
   int pow = 0;
   unsigned int result = 0;
 
-  if (n > 0 && length[0] == 48) return -1;
+  if (n > 0 && length[0] == CHR_MAX)
+    return -1;
 
   while (n)
   {
-    int ascii = (int)length[n - 1] - 48;
+    int ascii = (int)length[n - 1] - CHR_MAX;
     result += ascii * getPower(10, pow); // i * (10 ^ pow)
 
-    if (ascii < 0 || ascii > 10) return -1;
+    if (ascii < NUM_MIN || ascii > NUM_MAX)
+      return -1;
 
-    pow++; n--;
+    pow++;
+    n--;
   }
 
-  if (result > INT_MAX) return -1;
+  if (result > INT_MAX)
+    return -1;
 
   return result;
 }
@@ -144,16 +167,23 @@ int triangle(int a, int b, int c)
 {
   int validity = triValidity(a, b, c);
 
-  if (validity == 0)                return Impossible;
-  if (validity == 1)                return Flat;
+  if (validity == 0)
+    return Impossible;
+  if (validity == 1)
+    return Flat;
   if (validity == 2)
   {
-    if (triIsRight(a, b, c))        return Right;
-    if (triMustEqualSides(a, b, c)) return Equilateral;
-    if (triHasEqualSides(a, b, c))  return Isosceles;
-    else                            return Scalene;
+    if (triIsRight(a, b, c))
+      return Right;
+    if (triMustEqualSides(a, b, c))
+      return Equilateral;
+    if (triHasEqualSides(a, b, c))
+      return Isosceles;
+    else
+      return Scalene;
   }
-  else                              return -1;
+  else
+    return -1;
 }
 
 // -----------------------------------------------------------------------------
@@ -163,13 +193,27 @@ void print(int type)
 {
   switch (type)
   {
-    case Equilateral:   printf("Equilateral");  break;
-    case Isosceles:     printf("Isosceles");    break;
-    case Right:         printf("Right");        break;
-    case Scalene:       printf("Scalene");      break;
-    case Flat:          printf("Flat");         break;
-    case Impossible:    printf("Impossible");   break;
-    case Illegal:       printf("Illegal");      break;
+  case Equilateral:
+    printf("Equilateral");
+    break;
+  case Isosceles:
+    printf("Isosceles");
+    break;
+  case Right:
+    printf("Right");
+    break;
+  case Scalene:
+    printf("Scalene");
+    break;
+  case Flat:
+    printf("Flat");
+    break;
+  case Impossible:
+    printf("Impossible");
+    break;
+  case Illegal:
+    printf("Illegal");
+    break;
   }
   printf("\n");
 }
@@ -177,7 +221,8 @@ void print(int type)
 // A replacement for the library assert function.
 void assert(int line, bool b)
 {
-  if (b) return;
+  if (b)
+    return;
 
   printf("The test on line %d fails.\n", line);
   exit(1);

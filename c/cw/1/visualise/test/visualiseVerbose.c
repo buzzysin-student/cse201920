@@ -46,28 +46,42 @@ char int2HexChar(int n)
   }
 }
 
-void printBase(int n, long amount, int bits)
+void printBase(int n, long amount, int bits, int sgn)
 {
   int max_pwr = ceil(bits / log2(n));
   int sf = n < 4 ? 3 : 0;
+
+  // printf("mp = %d, pv = %li\n", max_pwr, pwr(n, max_pwr));
 
   for (int i = max_pwr - 1; i >= 0; i--)
   {
     int count = 0;
     unsigned long placeValue = pwr(n, i);
 
+    // printf("%d\n", amount);
+
+    // printf("i = %d, i == mp = %d\n", i, i == max_pwr - 1);
+
     if (amount > 0)
+    {
+      // printf("Amount > 0\n");
       while (placeValue <= amount)
       {
+        // printf("%li - %d^%d\n", amount, n, i);
         amount -= placeValue;
         count++;
       }
+    }
     else
+    {
+      // printf("Amount <= 0\n");
       while (amount < 0)
       {
+        // printf("%li + %d^%d\n", amount, n, i);
         amount += placeValue;
         count++;
       }
+    }
 
     printf("%c%s", int2HexChar(count), (i) % (int)(log2(n) + sf) == 0 ? " " : "");
   }
@@ -81,7 +95,7 @@ void adjustMetadata(char type[], int *bitPtr, long *minPtr, long *maxPtr, int sg
   if (strcmp(type, "int") == 0)
   {
     *bitPtr = SINT * 8;
-    if (sgn == 0)
+    if (sgn)
     {
       *maxPtr = UINT_MAX;
     }
@@ -95,21 +109,14 @@ void adjustMetadata(char type[], int *bitPtr, long *minPtr, long *maxPtr, int sg
   else if (strcmp(type, "char") == 0)
   {
     *bitPtr = CHAR * 8;
-    if (sgn == 0)
-    {
-      *maxPtr = UCHAR_MAX;
-    }
-    else
-    {
-      *minPtr = CHAR_MIN;
-      *maxPtr = CHAR_MAX;
-    }
+    *minPtr = CHAR_MIN;
+    *maxPtr = CHAR_MAX;
   }
 
   else if (strcmp(type, "long") == 0)
   {
     *bitPtr = LONG * 8;
-    if (sgn == 0)
+    if (sgn)
     {
       *maxPtr = ULONG_MAX;
     }
@@ -123,7 +130,7 @@ void adjustMetadata(char type[], int *bitPtr, long *minPtr, long *maxPtr, int sg
   else if (strcmp(type, "short") == 0)
   {
     *bitPtr = SHRT * 8;
-    if (sgn == 0)
+    if (sgn)
     {
       *maxPtr = USHRT_MAX;
     }
@@ -145,33 +152,28 @@ void summarise(char type[], long amount, int sgn)
 
   if (bits == -1)
   {
-    printf("Unable to show type %s%s at current.\n\n", sgn ? "" : "unsigned ", type);
+    printf("Unable to show type %s at current.\n", type);
     return;
   }
 
   char sgnbit = (amount >> (bits - 1)) & 1;
 
+  printf("%s %li - %s %d bits - => [%li, %li]\n", type, amount, sgn ? "signed" : "unsigned", bits, min, max);
+
   if (sgn)
-  {
-    printf("%s %li => signed %d bits   => [%li, %li]\n", type, amount, bits, min, max);
-    printf("significant bit            => %d (%s)\n", sgnbit, sgnbit ? "negative" : "positive");
-  }
-  else
-  {
-    printf("%s %lu => unsigned %d bits => [%lu, %lu]\n", type, amount, bits, min, max);
-  }
+    printf("significant bit -> %d (%s)\n", sgnbit, sgnbit ? "negative" : "positive");
 
   printf("\nBinary\n======\n");
-  printBase(2, amount, bits);
+  printBase(2, amount, bits, sgn);
 
   printf("\nOctal\n=====\n");
-  printBase(8, amount, bits);
+  printBase(8, amount, bits, sgn);
 
   printf("\nHexadecimal\n===========\n");
-  printBase(16, amount, bits);
+  printBase(16, amount, bits, sgn);
 
-  if (amount <= CHAR_MAX && amount >= CHAR_MIN)
-    printf("\nCharacter\n=========\n\'%c\'\n", (char)amount);
+  if (amount <= 127 && amount >= -128)
+    printf("\nCharacter\n=========\n%c\n", (char)amount);
 
   printf("\n");
 }
@@ -236,8 +238,7 @@ Unsigned: int, long, short\n\
 -------------\n\
 Example cases\n\
 -------------\n\
-$ ./visualise char 48\n\
-$ ./visualise unsigned int 255\n\
+./visualise char 48\n\
 # information about the representation of (unsigned) (type) (value)\n\
 # will appear down here. This includes:\n\
 # * Binary representation\n\

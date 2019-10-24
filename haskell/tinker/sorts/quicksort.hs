@@ -44,5 +44,24 @@ quicksort xs
       el > (getPivot xs)
     ]
 
-map :: (a -> b) -> [a] -> [b]
-map f xs = [f i | i <- xs]
+quicksort' :: [Int] -> [Int]
+quicksort' xs 
+  | length xs <= 1 = xs
+  | otherwise =  
+    quicksort' [
+      (xs !! j) 
+      | j <- [0..(length xs) - 1]
+      , j /= (div (length xs) 2)
+      , (xs !! j) <= (xs !! (div (length xs) 2))
+    ]
+      ++
+    [
+      (xs !! (div (length xs) 2))
+    ]
+      ++
+    quicksort' [
+      (xs !! j) 
+      | j <- [0..(length xs) - 1]
+      , j /= (div (length xs) 2)
+      , (xs !! j) > (xs !! (div (length xs) 2))
+    ]
