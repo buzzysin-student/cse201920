@@ -14,7 +14,7 @@ enum Types
   DBLE = sizeof(double),
   UINT = sizeof(unsigned int),
   ULNG = sizeof(unsigned long),
-  USHT = sizeof(unsigned short)
+  USHT = sizeof(unsigned short),
 };
 
 unsigned long pwr(int n, int p)
@@ -46,11 +46,23 @@ char int2HexChar(int n)
   }
 }
 
-void printBase(int n, long amount, int bits)
+void assert(int ln, int expr)
+{
+  if (expr)
+    return;
+  else
+  {
+    printf("Line %d fails\n", ln);
+    exit(1);
+  }
+}
+
+void printBase(int n, long amount, int sign, int bits, char out[])
 {
   int max_pwr = ceil(bits / log2(n));
   int sf = n < 4 ? 3 : 0;
 
+  int cnt = 0;
   for (int i = max_pwr - 1; i >= 0; i--)
   {
     int count = 0;
@@ -69,13 +81,17 @@ void printBase(int n, long amount, int bits)
         count++;
       }
 
-    printf("%c%s", int2HexChar(count), (i) % (int)(log2(n) + sf) == 0 ? " " : "");
+    char *space = (i) % (int)(log2(n) + sf) == 0 ? " " : "";
+
+    printf("%c%s", int2HexChar(count), space);
+    out[cnt++] = int2HexChar(count);
   }
 
+  out[cnt] = 0;
   printf("\n");
 }
 
-void adjustMetadata(char type[], int *bitPtr, long *minPtr, long *maxPtr, int sgn)
+void adjustMetadata(char type[], int *bitPtr, long long *minPtr, long long *maxPtr, int sgn)
 {
 
   if (strcmp(type, "int") == 0)
@@ -135,11 +151,12 @@ void adjustMetadata(char type[], int *bitPtr, long *minPtr, long *maxPtr, int sg
   }
 }
 
-void summarise(char type[], long amount, int sgn)
+void summarise(char type[], long long amount, int sgn, char *test, int ln)
 {
   int bits = -1;
-  long min = 0;
-  long max = 0;
+  long long min = 0;
+  long long max = 0;
+  char result[1000];
 
   adjustMetadata(type, &bits, &min, &max, sgn);
 
@@ -151,27 +168,42 @@ void summarise(char type[], long amount, int sgn)
 
   char sgnbit = (amount >> (bits - 1)) & 1;
 
+  printf("------------------\n");
   if (sgn)
   {
-    printf("%s %li => signed %d bits   => [%li, %li]\n", type, amount, bits, min, max);
-    printf("significant bit            => %d (%s)\n", sgnbit, sgnbit ? "negative" : "positive");
+    printf("%s %lli => signed %d bits => [%lli, %lli]\n", type, amount, bits, min, max);
+    printf("significant bit => %d (%s)\n", sgnbit, sgnbit ? "negative" : "positive");
   }
   else
   {
-    printf("%s %lu => unsigned %d bits => [%lu, %lu]\n", type, amount, bits, min, max);
+    printf("%s %llu => unsigned %d bits => [%llu, %llu]\n", type, amount, bits, min, max);
   }
+  printf("------------------\n");
 
-  printf("\nBinary\n======\n");
-  printBase(2, amount, bits);
+  if ((amount > max || amount < min))
+  {
+    strcpy(result, "OVERFLOW");
+    printf("%s\n", result);
+  }
+  else
+  {
+    printf("\nBinary\n======\n");
+    printBase(2, amount, sgn, bits, result);
 
-  printf("\nOctal\n=====\n");
-  printBase(8, amount, bits);
+    if (strlen(test))
+    {
+      assert(ln, strcmp(test, result) == 0);
+    }
 
-  printf("\nHexadecimal\n===========\n");
-  printBase(16, amount, bits);
+    printf("\nOctal\n=====\n");
+    printBase(8, amount, sgn, bits, result);
 
-  if (amount <= CHAR_MAX && amount >= CHAR_MIN)
-    printf("\nCharacter\n=========\n\'%c\'\n", (char)amount);
+    printf("\nHexadecimal\n===========\n");
+    printBase(16, amount, sgn, bits, result);
+
+    if (amount <= CHAR_MAX && amount >= CHAR_MIN)
+      printf("\nCharacter\n=========\n\'%c\'\n", (char)amount);
+  }
 
   printf("\n");
 }
@@ -179,83 +211,70 @@ void summarise(char type[], long amount, int sgn)
 void test()
 {
   // * Extreme Signed Char
-  summarise("char", CHAR_MAX - 1, 1);
-  summarise("char", CHAR_MAX, 1);
-  summarise("char", CHAR_MIN, 1);
-  summarise("char", CHAR_MIN + 1, 1);
-  // * Extreme Signed Int
-  summarise("int", INT_MAX - 1, 1);
-  summarise("int", INT_MAX, 1);
-  summarise("int", INT_MIN, 1);
-  summarise("int", INT_MIN + 1, 1);
-  // * Extreme Signed Long
-  summarise("long", LONG_MAX - 1, 1);
-  summarise("long", LONG_MAX, 1);
-  summarise("long", LONG_MIN, 1);
-  summarise("long", LONG_MIN + 1, 1);
-  // * Extreme Signed Short
-  summarise("short", SHRT_MAX - 1, 1);
-  summarise("short", SHRT_MAX, 1);
-  summarise("short", SHRT_MIN, 1);
-  summarise("short", SHRT_MIN + 1, 1);
-  // * Extreme Unsigned Char
-  summarise("char", UCHAR_MAX - 1, 0);
-  summarise("char", UCHAR_MAX, 0);
-  summarise("char", 0, 0);
-  summarise("char", 1, 0);
-  // * Extreme Unsigned Int
-  summarise("int", UINT_MAX - 1, 0);
-  summarise("int", UINT_MAX, 0);
-  summarise("int", 0, 0);
-  summarise("int", 1, 0);
-  // * Extreme Unsigned Long
-  summarise("long", ULONG_MAX - 1, 0);
-  summarise("long", ULONG_MAX, 0);
-  summarise("long", 0, 0);
-  summarise("long", 1, 0);
-  // * Extreme Unsigned Short
-  summarise("short", USHRT_MAX - 1, 0);
-  summarise("short", USHRT_MAX, 0);
-  summarise("short", 0, 0);
-  summarise("short", 1, 0);
-}
+  summarise("char", CHAR_MAX, 1, "01111111", __LINE__);
+  summarise("char", CHAR_MAX + 1, 1, "OVERFLOW", __LINE__);
+  summarise("char", CHAR_MIN, 1, "10000000", __LINE__);
+  summarise("char", CHAR_MIN - 1, 1, "OVERFLOW", __LINE__);
 
-void usage()
-{
-  printf("\
-=========\n\
-Visualise\n\
-=========\n\
-\n\
----------------\n\
-Supported types\n\
----------------\n\
-Signed: int, char, long, short\n\
-Unsigned: int, long, short\n\
-\n\
--------------\n\
-Example cases\n\
--------------\n\
-$ ./visualise char 48\n\
-$ ./visualise unsigned int 255\n\
-# information about the representation of (unsigned) (type) (value)\n\
-# will appear down here. This includes:\n\
-# * Binary representation\n\
-# * Octal representation\n\
-# * Hexadecimal representation\n\
-# * Character representation, where applicable\n\
-");
+  // * Extreme Signed Int
+  summarise("int", INT_MAX, 1ULL, "01111111111111111111111111111111", __LINE__);
+  summarise("int", INT_MAX + 1ULL, 1, "OVERFLOW", __LINE__);
+  summarise("int", INT_MIN, 1ULL, "10000000000000000000000000000000", __LINE__);
+  summarise("int", INT_MIN - 1ULL, 1, "OVERFLOW", __LINE__);
+
+  // * Extreme Signed Long
+  summarise("long", LONG_MAX, 1ULL, "0111111111111111111111111111111111111111111111111111111111111111", __LINE__);
+  summarise("long", LONG_MAX + 1ULL, 0, "OVERFLOW", __LINE__);
+  summarise("long", LONG_MIN, 1ULL, "1000000000000000000000000000000000000000000000000000000000000000", __LINE__);
+  // ! Warning - false positive - this result should overflow.
+  summarise("long", LONG_MIN - 1ULL, 1, "0111111111111111111111111111111111111111111111111111111111111111", __LINE__);
+  // ! End warning
+
+  // * Extreme Signed Short
+  summarise("short", SHRT_MAX, 1, "0111111111111111", __LINE__);
+  summarise("short", SHRT_MAX + 1ULL, 1, "OVERFLOW", __LINE__);
+  summarise("short", SHRT_MIN, 1ULL, "1000000000000000", __LINE__);
+  summarise("short", SHRT_MIN - 1ULL, 1, "OVERFLOW", __LINE__);
+
+  // * Extreme Unsigned Char
+  summarise("char", UCHAR_MAX, 0, "11111111", __LINE__);
+  summarise("char", UCHAR_MAX + 1, 0, "OVERFLOW", __LINE__);
+  summarise("char", 0, 0, "00000000", __LINE__);
+  summarise("char", -1ULL, 0, "OVERFLOW", __LINE__);
+  
+  // * Extreme Unsigned Int
+  summarise("int", UINT_MAX, 0, "11111111111111111111111111111111", __LINE__);
+  summarise("int", UINT_MAX + 1ULL, 0, "OVERFLOW", __LINE__);
+  summarise("int", 0, 0, "00000000000000000000000000000000", __LINE__);
+  summarise("int", -1ULL, 0, "OVERFLOW", __LINE__);
+
+  // * Extreme Unsigned Long
+  // ! Warning - The use of 'long long' to contain smaller types has backfired here.
+  // ! All of these results are false positives.
+  summarise("long", ULONG_MAX, 0, "OVERFLOW", __LINE__);
+  summarise("long", ULONG_MAX + 1ULL, 0, "OVERFLOW", __LINE__);
+  summarise("long", 0, 0, "OVERFLOW", __LINE__);
+  summarise("long", -1ULL, 0, "OVERFLOW", __LINE__);
+  // ! End Warning
+
+  // * Extreme Unsigned Short
+  summarise("short", USHRT_MAX, 0, "1111111111111111", __LINE__);
+  summarise("short", USHRT_MAX + 1ULL, 0, "OVERFLOW", __LINE__);
+  summarise("short", 0, 0, "0000000000000000", __LINE__);
+  summarise("short", -1ULL, 0, "OVERFLOW", __LINE__);
+
+  printf("All tests pass\n");
 }
 
 int main(int argc, char *argv[])
 {
-
   char *type;
   long amount;
 
   if (argc != 3 && argc != 4)
   {
     test();
+    // printf("%lli\n", (__int128)LONG_MIN - 1ull);
   }
   else
   {
@@ -263,13 +282,13 @@ int main(int argc, char *argv[])
     {
       type = argv[1];
       amount = atol(argv[2]);
-      summarise(type, amount, 1);
+      summarise(type, amount, 1, "", 0);
     }
     else if (argc == 4)
     {
       type = argv[2];
       amount = atol(argv[3]);
-      summarise(type, amount, 0);
+      summarise(type, amount, 0, "", 0);
     }
   }
 
