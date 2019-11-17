@@ -269,8 +269,8 @@ if [ "$FLAG_M" ]; then
 fi
 
 if [ "$FLAG_R" ]; then
-  echo CMD: "$OUTPUT_FILE $PROGRAM_OPTS"
-  $OUTPUT_FILE $PROGRAM_OPTS
+  echo CMD: "./$OUTPUT_FILE $PROGRAM_OPTS"
+  "./$OUTPUT_FILE" $PROGRAM_OPTS
 fi
 
 exit 0

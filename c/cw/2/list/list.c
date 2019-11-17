@@ -2,6 +2,9 @@
 
 // ---------- Add headers here ----------
 #include "list.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 // Each node in a doubly linked list is stored in this structure. The user of the
 // module does not have any knowledge of nodes.
@@ -27,6 +30,233 @@ struct list
 typedef struct list list;
 
 // ---------- Add functions here ----------
+
+// *********************** //
+//  *** Implementation *** //
+// *********************** //
+
+// Create a new empty list, with the default item to return in case no item is selected.
+// No item is selected in an empty list.
+list *newList(item e)
+{
+  // * Allocate the necessary memory for the list
+  list *l = malloc(sizeof(list));
+  // * Allocate the necessary memory for the sentinel node
+  node *none = malloc(sizeof(node));
+
+  // * Set the fields of the struct
+  none->next = none;
+  none->back = none;
+  none->x = e;
+
+  // * Assign the node to the list
+  l->none = none;
+  l->current = none;
+
+  // * Return a pointer to the list
+  return l;
+}
+
+void freeList(list *xs)
+{
+  // * Define a reference point to start
+  // * freeing nodes
+  node *start = xs->none->next;
+
+  while (start != xs->none)
+  {
+    // * The node we want to free is the one
+    // * at the start
+    node *to_free = start;
+
+    // * The sentinel points to the item after
+    // * the node to remove
+    xs->none->next = to_free->next;
+
+    // * The neighbour to the node to remove
+    // * now points to the end of the list
+    to_free->back = xs->none;
+
+    // * At this point, the node to free should
+    // * no longer have any pointers to it, so
+    // * it should itself be safe to free
+    free(to_free);
+
+    // * Reassign start
+    start = xs->none->next;
+  }
+
+  // * After iteration, all except the sentinel remains.
+  free(xs->none);
+
+  // * Free the wrapper struct
+  free(xs);
+}
+
+void first(list *xs)
+{
+  // * We can skip this entire function iff:
+  // ? The list is empty
+  if (xs->none->next == xs->none->back)
+    return;
+
+  xs->current = xs->none->next;
+}
+void last(list *xs)
+{
+  // * We can skip this entire function iff:
+  // ? The list is empty
+  if (xs->none->next == xs->none->back)
+    return;
+
+  xs->current = xs->none->back;
+}
+
+bool none(list *xs)
+{
+  // * Return whether or not the current pointer is
+  // * pointing at the sentinel
+  return xs->current == xs->none;
+}
+
+bool after(list *xs)
+{
+  // * Null case - no item is selected
+  if (xs->current == xs->none)
+    return false;
+
+  // * Otherwise
+  xs->current = xs->current->next;
+  return true;
+}
+bool before(list *xs)
+{
+  // * Null case - no item is selected
+  if (xs->current == xs->none)
+    return false;
+
+  // * Otherwise
+  xs->current = xs->current->back;
+  return true;
+}
+
+item get(list *xs)
+{
+  // * Null case - no item is selected
+  if (xs->current == xs->none)
+    // * Return the default item
+    return xs->none->x;
+
+  // * Otherwise
+  return xs->current->x;
+}
+bool set(list *xs, item x)
+{
+  // * Null case - no item is selected
+  if (xs->current == xs->none)
+    // * Return false
+    return false;
+
+  // * Otherwise
+  xs->current->x = x;
+  return true;
+}
+
+void insertAfter(list *xs, item x)
+{
+  // * Create a new node to hold item x
+  node *n = malloc(sizeof(node));
+  n->x = x;
+
+  // ? Rearrange pointers to accomodate new node:
+
+  // * New node next => After current
+  n->next = xs->current->next;
+  // * New node back => Current node
+  n->back = xs->current;
+
+  // * After current back => New node
+  xs->current->next->back = n;
+  // * Current next => New Node
+  xs->current->next = n;
+
+  // * Finally, reassign the current pointer
+  xs->current = n;
+}
+void insertBefore(list *xs, item x)
+{
+  // * Create a new node to hold item x
+  node *n = malloc(sizeof(node));
+  n->x = x;
+
+  // ? Rearrange pointers to accomodate new node:
+
+  // * New node next => Current node
+  n->next = xs->current;
+  // * New node back => Before Current
+  n->back = xs->current->back;
+
+  // * Before current next => New node
+  xs->current->back->next = n;
+  // * Current back => New Node
+  xs->current->back = n;
+
+  // * Finally, reassign the current pointer
+  xs->current = n;
+}
+
+bool deleteToAfter(list *xs)
+{
+  // * Null case - no item is selected
+  if (xs->current == xs->none)
+    return false;
+
+  // * Otherwise
+
+  // * Identify the node to free ...
+  node *to_free = xs->current;
+  // * ... and the new next node
+  node *next = xs->current->next;
+
+  // * Dissociate the node to free from the list
+  next->back = to_free->back;
+  to_free->back->next = next;
+
+  // * Assign the new current node
+  xs->current = next;
+  // * Free the old current node
+  free(to_free);
+
+  return true;
+}
+bool deleteToBefore(list *xs)
+{
+  // * Null case - no item is selected
+  if (xs->current == xs->none)
+    return false;
+
+  // * Otherwise
+
+  // * Identify the node to free ...
+  node *to_free = xs->current;
+  // * ... and the new next node
+  node *next = xs->current->back;
+
+  // * Dissociate the node to free from the list
+  next->next = to_free->next;
+  to_free->next->back = next;
+
+  // * Assign the new current node
+  xs->current = next;
+  // * Free the old current node
+  free(to_free);
+
+  return true;
+}
+
+// !!!!!!!!!!!!!!!!!!!!!!! //
+// !!! End of new code !!! //
+// !!!!!!!!!!!!!!!!!!!!!!! //
 
 // Test the list module, using int as the item type. Strings are used as
 // 'pictograms' to describe lists. Single digits represent items and the '|' symbol
@@ -146,7 +376,7 @@ int call(function f, list *xs, int arg)
   switch (f)
   {
   case None:
-    none(xs);
+    result = none(xs);
     break;
   case First:
     first(xs);
@@ -309,6 +539,7 @@ int main()
   testNewList();
   testFirst();
   testLast();
+  testNone();
   testAfter();
   testBefore();
   testGet();
