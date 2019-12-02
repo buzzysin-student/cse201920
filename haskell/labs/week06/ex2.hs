@@ -8,6 +8,6 @@ data Reaction =
 instance Pretty Reaction where 
   pretty Happy = ":)"
   pretty Sad = ":("
-  pretty Excited = ":D"
+  pretty Excit\ed = ":D"
   pretty Angry = ">:("
   pretty Indifferent = "|-|"

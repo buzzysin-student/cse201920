@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ModuleSim>
+  <view camX="0.0" camY="-10.0" zoom="3"/>
+  <ModuleSim>
+    <module ID="0" type="LOGIC">
+      <dim orient="0" x="-350.0" y="-125.0"/>
+      <inputs>
+        <input ID="3"/>
+        <input ID="4"/>
+        <input ID="5"/>
+      </inputs>
+      <outputs>
+        <output ID="1"/>
+        <output ID="2"/>
+      </outputs>
+    </module>
+    <module ID="6" type="LOGIC">
+      <dim orient="0" x="-150.0" y="-125.0"/>
+      <inputs>
+        <input ID="9"/>
+        <input ID="10"/>
+        <input ID="11"/>
+      </inputs>
+      <outputs>
+        <output ID="7"/>
+        <output ID="8"/>
+      </outputs>
+    </module>
+    <module ID="12" type="LOGIC">
+      <dim orient="0" x="50.0" y="-125.0"/>
+      <inputs>
+        <input ID="15"/>
+        <input ID="16"/>
+        <input ID="17"/>
+      </inputs>
+      <outputs>
+        <output ID="13"/>
+        <output ID="14"/>
+      </outputs>
+    </module>
+    <module ID="18" type="SWITCH">
+      <dim orient="0" x="-250.0" y="150.0"/>
+      <inputs/>
+      <outputs>
+        <output ID="19"/>
+      </outputs>
+      <data switch_set="1111"/>
+    </module>
+    <module ID="20" type="SWITCH">
+      <dim orient="3" x="-50.0" y="-125.0"/>
+      <inputs/>
+      <outputs>
+        <output ID="21"/>
+      </outputs>
+      <data switch_set="0010"/>
+    </module>
+    <module ID="22" type="SWITCH">
+      <dim orient="3" x="-250.0" y="-125.0"/>
+      <inputs/>
+      <outputs>
+        <output ID="23"/>
+      </outputs>
+      <data switch_set="0001"/>
+    </module>
+    <module ID="24" type="SWITCH">
+      <dim orient="3" x="150.0" y="-125.0"/>
+      <inputs/>
+      <outputs>
+        <output ID="25"/>
+      </outputs>
+      <data switch_set="0011"/>
+    </module>
+    <module ID="26" type="SWITCH">
+      <dim orient="0" x="-50.0" y="150.0"/>
+      <inputs/>
+      <outputs>
+        <output ID="27"/>
+      </outputs>
+      <data switch_set="0000"/>
+    </module>
+    <module ID="28" type="FANOUT">
+      <dim orient="0" x="-250.0" y="25.0"/>
+      <inputs>
+        <input ID="33"/>
+      </inputs>
+      <outputs>
+        <output ID="29"/>
+        <output ID="30"/>
+        <output ID="31"/>
+        <output ID="32"/>
+      </outputs>
+    </module>
+    <module ID="34" type="FANOUT">
+      <dim orient="0" x="-50.0" y="25.0"/>
+      <inputs>
+        <input ID="39"/>
+      </inputs>
+      <outputs>
+        <output ID="35"/>
+        <output ID="36"/>
+        <output ID="37"/>
+        <output ID="38"/>
+      </outputs>
+    </module>
+  </ModuleSim>
+  <links>
+    <link src="23" targ="5" type="StraightPath"/>
+    <link src="21" targ="11" type="StraightPath"/>
+    <link src="25" targ="17" type="StraightPath"/>
+    <link src="19" targ="33" type="StraightPath"/>
+    <link src="30" targ="9" type="StraightPath"/>
+    <link src="27" targ="39" type="StraightPath"/>
+    <link src="29" targ="3" type="StraightPath"/>
+    <link src="35" targ="4" type="StraightPath"/>
+    <link src="36" targ="10" type="StraightPath"/>
+    <link src="31" targ="15" type="StraightPath"/>
+    <link src="37" targ="16" type="StraightPath"/>
+  </links>
+</ModuleSim>

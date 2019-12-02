@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ModuleSim>
+  <view camX="0.0" camY="0.0" zoom="3"/>
+  <ModuleSim>
+    <module ID="0" type="REGISTER">
+      <dim orient="0" x="-175.0" y="-375.0"/>
+      <inputs>
+        <input ID="1"/>
+        <input ID="2"/>
+      </inputs>
+      <outputs>
+        <output ID="3"/>
+        <output ID="4"/>
+      </outputs>
+      <data latched_value="0000"/>
+    </module>
+    <module ID="5" type="SWITCH">
+      <dim orient="0" x="-175.0" y="-250.0"/>
+      <inputs/>
+      <outputs>
+        <output ID="6"/>
+      </outputs>
+      <data switch_set="0000"/>
+    </module>
+  </ModuleSim>
+  <links>
+    <link src="6" targ="1" type="StraightPath"/>
+  </links>
+</ModuleSim>
