@@ -39,8 +39,6 @@ eval (Sub e1 e2) = (-) (eval e1) (eval e2)
 eval (Div e1 e2) = div (eval e1) (eval e2)
 eval (Num n)     = n
 
-evalStr :: Str -> Int
-eval s = 
 
 safeEval :: Expr -> Maybe Int
 safeEval (Div e1 (Num 0)) = Nothing

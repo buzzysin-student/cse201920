@@ -31,6 +31,20 @@ C Options
   Note: If used, the Makefile command must have the same name
         as the source file.
 
+------------
+Java Options
+------------
+-j <path> *
+  Compile the (J)ava source script located at <path> (*required)
+  using javac
+
+  $ ./compile -j ./oop/program.java # Outputs a .class file
+
+-J <class>
+  Specify the (J)ava class name for execution
+
+  Note: if used, it must be used with 
+
 ---------------
 Haskell Options
 ---------------
