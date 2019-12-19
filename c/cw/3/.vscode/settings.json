@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "sketch.h": "c",
+    "limits": "c",
+    "type_traits": "c",
+    "typeinfo": "c",
+    "stdio.h": "c",
+    "cstdbool": "cpp",
+    "logger.h": "c"
+  }
+}

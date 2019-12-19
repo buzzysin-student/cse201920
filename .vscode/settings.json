@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "displayfull.h": "c",
+    "sketch.h": "c",
+    "stdbool.h": "c"
+  }
+}

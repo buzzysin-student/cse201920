@@ -43,7 +43,12 @@ Java Options
 -J <class>
   Specify the (J)ava class name for execution
 
-  Note: if used, it must be used with 
+  Note: if used, it must be used with -j and -r
+
+-k < --options >
+  Pass options to JavaVM
+
+  Note: if used, it must be used with -J
 
 ---------------
 Haskell Options
@@ -126,38 +131,43 @@ ERRS=0
 
 run_ghci_compiler() {
   OUTPUT_FILE="${INPUT_FILE%.*}"
-
   if [ $FLAG_G ]; then
     GHCI_COMMAND="ghci $COMPILER_OPTS $INPUT_FILE"
   else
     GHCI_COMMAND="ghc "$COMPILER_OPTS" -o "$OUTPUT_FILE" "$INPUT_FILE""
   fi
-  
   echo CMD: "$GHCI_COMMAND"
-  
   $GHCI_COMMAND
 }
 
 run_clng_compiler() {
   OUTPUT_FILE="${INPUT_FILE%.*}"
-
-  CLNG_COMMAND="clang $COMPILER_OPTS $INPUT_FILE -o $OUTPUT_FILE -fsanitize=undefined -fsanitize=address"
-  
+  CLNG_COMMAND="clang $COMPILER_OPTS $INPUT_FILE -o \
+    $OUTPUT_FILE -fsanitize=undefined -fsanitize=address"
   echo CMD: "$CLNG_COMMAND"
-  
   $CLNG_COMMAND
 }
 
 run_make_compiler() {
   cd $INPUT_DIR
-
   OUTPUT_FILE="${INPUT_FILE%.*}"
   MAKE="${OUTPUT_FILE#"$INPUT_DIR/"}"
   MAKE_COMMAND="make $MAKE"
-
   echo "CMD: $MAKE_COMMAND"
-  
   $MAKE_COMMAND
+}
+
+run_javac_compiler() {
+  JAVAC_COMMAND="javac $COMPILER_OPTS $INPUT_FILE"
+  echo CMD: "$JAVAC_COMMAND"
+  $JAVAC_COMMAND
+}
+
+run_java_compiler() {
+  cd $INPUT_DIR
+  JAVA_COMMAND="java $FLAG_K $FLAG_JJ $@"
+  echo CMD: "$JAVA_COMMAND"
+  $JAVA_COMMAND
 }
 
 usage() {
@@ -166,10 +176,11 @@ usage() {
 
 H_OPTS="gh:"
 C_OPTS="mc:"
+J_OPTS="j:J:k:"
 G_OPTS="i:a:r"
 O_OPTS="I"
 
-while getopts ":$H_OPTS$C_OPTS$G_OPTS$O_OPTS" opts; do 
+while getopts ":$H_OPTS$C_OPTS$J_OPTS$G_OPTS$O_OPTS" opts; do 
 
   case "${opts}" in 
     # Haskell Options
@@ -205,6 +216,19 @@ while getopts ":$H_OPTS$C_OPTS$G_OPTS$O_OPTS" opts; do
     m)
       FLAG_M=1
       ;;
+    # Java Options
+    j)
+      FLAG_J=1
+      INPUT_FILE="$OPTARG"
+      INPUT_DIR="${INPUT_FILE%/*}"
+      COMPILER=run_javac_compiler
+      ;;
+    J)
+      FLAG_JJ="$OPTARG"
+      ;;
+    k)
+      FLAG_K="$OPTARG"
+      ;;
     # Global Options
     i)
       FLAG_I=1
@@ -237,7 +261,6 @@ if [ ! $1 ]; then
 fi
 
 if [ "$FLAG_II" ]; then
-
   echo "Installing compiler on to system path :D"
   echo "Note - this will likely only work on Linux Distributions"
 
@@ -276,15 +299,22 @@ if [[ -f $OUTPUT_FILE ]]; then
   rm $OUTPUT_FILE
 fi
 
-"$COMPILER" "$INPUT_FILE"
+"$COMPILER"
 
 if [ "$FLAG_M" ]; then 
   cd $OLD_DIR
 fi
 
 if [ "$FLAG_R" ]; then
-  echo CMD: "./$OUTPUT_FILE $PROGRAM_OPTS"
-  "./$OUTPUT_FILE" $PROGRAM_OPTS
+  if [ ! "$FLAG_J" ]; then
+    echo CMD: "./$OUTPUT_FILE $PROGRAM_OPTS"
+    "./$OUTPUT_FILE" $PROGRAM_OPTS
+  elif [[ "$FLAG_J" && ! "$FLAG_JJ" ]]; then
+    echo "Please specify class to run < .. -JCLASS .. >"
+  else
+    run_java_compiler $PROGRAM_OPTS
+    cd $OLD_DIR
+  fi
 fi
 
 exit 0
