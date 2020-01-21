@@ -2,7 +2,7 @@ cnewline = "\n"
 ctabchar = "\t"
 cnewbrek = cnewbrek ++ cnewline
 
-tag t cnt = "<"++t++">" ++ cnewbrek ++ t ++ cnewline ++ "</"++t++">"
+tag t cnt = "<"++t++">" ++ cnewbrek ++ cnt ++ cnewline ++ "</"++t++">"
 
 main = do
   putStrLn tag "html" (

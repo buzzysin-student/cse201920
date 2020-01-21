@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include "displayfull.h"
 #include "sketch.h"
-#include "/home/tk/.local/lib/logger.h"
 
 enum MASKS {
   MASK_OPCODE = 0xC0,
