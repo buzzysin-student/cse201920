@@ -1,8 +1,5 @@
 # Ignore 
 .vscode
-*
-!/**/
-!*.*
 !Makefile
 
 # Ignore compiled files
