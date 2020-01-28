@@ -1,3 +1,5 @@
+[Up](../) | [Home](/) | [Index](./index.md)
+
 # What is an object ?
 
 > An object combines both data and methods in a new single and UNIQUE identity - a **unique position in memory**

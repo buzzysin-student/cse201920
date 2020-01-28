@@ -5,3 +5,4 @@
 # Ignore compiled files
 *.hi
 *.o
+**/*.class
