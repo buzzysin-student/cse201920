@@ -1,6 +1,9 @@
 # Ignore 
 .vscode
 
+# Keep
+!Makefile
+
 # Ignore compiled files
 *.hi
 *.o
