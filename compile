@@ -164,7 +164,9 @@ run_javac_compiler() {
 }
 
 run_java_compiler() {
-  cd $INPUT_DIR
+  if [ -d $INPUT_DIR ]; do
+    cd $INPUT_DIR
+  fi
   JAVA_COMMAND="java $FLAG_K $FLAG_JJ $@"
   echo CMD: "$JAVA_COMMAND"
   $JAVA_COMMAND
