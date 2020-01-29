@@ -20,7 +20,3 @@ A problem is well-defined if it has a clearly defined end-state.
   1. An array of length 0 has no peaks
   2. An array of length 1 has no peaks as it has no adjacent members
   3. An array of length 2 will return the index of the largest element
-
-```bash
-
-```
