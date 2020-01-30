@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-USAGE=$(cat << END
+USAGE=$(
+  cat <<END
 
 COMPILE Taharka Okai - (c) 2019 
 
@@ -158,18 +159,41 @@ run_make_compiler() {
 }
 
 run_javac_compiler() {
-  JAVAC_COMMAND="javac $COMPILER_OPTS $INPUT_FILE"
-  echo CMD: "$JAVAC_COMMAND"
-  $JAVAC_COMMAND
+  OUTPUT_FILE="${INPUT_FILE%.*}"
+  TARGET="${OUTPUT_FILE#"$INPUT_DIR/"}"
+  
+  JAVAC_CMD="javac $INPUT_FILE -d $INPUT_DIR/bin"
+  echo CMD: $JAVAC_CMD
+  $JAVAC_CMD
 }
 
-run_java_compiler() {
-  if [ -d $INPUT_DIR ]; do
-    cd $INPUT_DIR
+run_execute_file() {
+  # Java files are exceptional to 
+  # normal compilation
+  if [ "$FLAG_J" ]; then
+    run_execute_java
+    return
   fi
-  JAVA_COMMAND="java $FLAG_K $FLAG_JJ $@"
-  echo CMD: "$JAVA_COMMAND"
-  $JAVA_COMMAND
+
+  # Regular running
+  echo CMD: "./$OUTPUT_FILE $PROGRAM_OPTS"
+  "./$OUTPUT_FILE" $PROGRAM_OPTS
+}
+
+run_execute_java() {
+  if [ ! -d "$INPUT_DIR/bin" ]; then
+    echo "Something has gone wrong - I can't find the $INPUT_DIR/bin directory."
+    return
+  fi
+
+  cd $INPUT_DIR/bin
+
+  JAVA_CMD="java $TARGET $PROGRAM_OPTS"
+  echo CMD: $JAVA_CMD
+
+  $JAVA_CMD
+
+  cd $OLD_DIR
 }
 
 usage() {
@@ -182,79 +206,91 @@ J_OPTS="j:J:k:"
 G_OPTS="i:a:r"
 O_OPTS="I"
 
-while getopts ":$H_OPTS$C_OPTS$J_OPTS$G_OPTS$O_OPTS" opts; do 
+while getopts ":$H_OPTS$C_OPTS$J_OPTS$G_OPTS$O_OPTS" opts; do
+  case "${opts}" in
 
-  case "${opts}" in 
-    # Haskell Options
-    h)
-      FLAG_H=1
-      INPUT_FILE="$OPTARG"
-      COMPILER=run_ghci_compiler
-      ;;
-    g)
-      FLAG_G=1
-      ;;
-    # C Options
-    c)
-      FLAG_C=1
-      INPUT_FILE="$OPTARG"
-      INPUT_DIR="${INPUT_FILE%/*}"
-      INPUT_DIR_CONTENTS=$(dir $INPUT_DIR)
+  # ? Haskell Options
+  h)
+    # Compile the file $OPTARG
+    FLAG_H=1
+    INPUT_FILE="$OPTARG"
+    COMPILER=run_ghci_compiler
+    ;;
+  g)
+    # Run the file in the interpreter
+    FLAG_G=1
+    ;;
+  # ? C Options
+  c)
+    # Compile the file $OPTARG
+    FLAG_C=1
+    INPUT_FILE="$OPTARG"
+    INPUT_DIR="${INPUT_FILE%/*}"
+    INPUT_DIR_CONTENTS=$(dir $INPUT_DIR)
 
-      for file in $INPUT_DIR_CONTENTS; do 
-        if [[ " $file " =~ .*\ Makefile\ .* ]]; then
-          MAKEFILE=1
-          break
-        fi
-      done;
-
-      if [[ "$MAKEFILE" && $FLAG_M ]]; then
-        COMPILER=run_make_compiler
-      else
-        COMPILER_OPTS="-std=c11 -Wall -pedantic -g"
-        COMPILER=run_clng_compiler
+    for file in $INPUT_DIR_CONTENTS; do
+      if [[ " $file " =~ .*\ Makefile\ .* ]]; then
+        MAKEFILE=1
+        break
       fi
-      ;;
-    m)
-      FLAG_M=1
-      ;;
-    # Java Options
-    j)
-      FLAG_J=1
-      INPUT_FILE="$OPTARG"
-      INPUT_DIR="${INPUT_FILE%/*}"
-      COMPILER=run_javac_compiler
-      ;;
-    J)
-      FLAG_JJ="$OPTARG"
-      ;;
-    k)
-      FLAG_K="$OPTARG"
-      ;;
-    # Global Options
-    i)
-      FLAG_I=1
-      COMPILER_OPTS="$COMPILER_OPTS $OPTARG"
-      ;;
-    r)
-      FLAG_R=1
-      ;;
-    a)
-      FLAG_A=1
-      PROGRAM_OPTS="$OPTARG"
-      ;;
-    # Other Options
-    I)
-      FLAG_II=1
-      ;;
-    \?) 
-      echo "Something is weird"
-      ;;
-    *)
-      echo "Something is even weirder."
-      ;;
-  esac
+    done
 
+    if [[ "$MAKEFILE" && $FLAG_M ]]; then
+      COMPILER=run_make_compiler
+    else
+      COMPILER_OPTS="-std=c11 -Wall -pedantic -g"
+      COMPILER=run_clng_compiler
+    fi
+    ;;
+  m)
+    # Compile using the Makefile instead
+    FLAG_M=1
+    ;;
+  # ? Java Options
+  j)
+    # Compile the file $OPTARG
+    FLAG_J=1
+    INPUT_FILE="$OPTARG"
+    INPUT_DIR="${INPUT_FILE%/*}"
+    [ -f $INPUT_DIR ] && INPUT_DIR="."
+    COMPILER=run_javac_compiler
+    ;;
+  J)
+    # Class path
+    FLAG_JJ="$OPTARG"
+    ;;
+  k)
+    # Pass arguments to program
+    FLAG_K="$OPTARG"
+    ;;
+  # ? Global Options
+  i)
+    # Insert compiler options
+    FLAG_I=1
+    COMPILER_OPTS="$COMPILER_OPTS $OPTARG"
+    ;;
+  r)
+    # Run the compiled program
+    FLAG_R=1
+    ;;
+  a)
+    # Append arguments to program
+    FLAG_A=1
+    PROGRAM_OPTS="$OPTARG"
+    ;;
+  # ? Other Options
+  I)
+    # Install compile to local environment
+    FLAG_II=1
+    ;;
+  \?)
+    echo "Something is weird"
+    ;;
+  *)
+    echo "Something is even weirder."
+    ;;
+
+  esac
 done
 
 if [ ! $1 ]; then
@@ -266,7 +302,7 @@ if [ "$FLAG_II" ]; then
   echo "Installing compiler on to system path :D"
   echo "Note - this will likely only work on Linux Distributions"
 
-  if [ ! -f "./compile" ]; then 
+  if [ ! -f "./compile" ]; then
     echo "compile is already installed."
     exit 1
   fi
@@ -282,7 +318,7 @@ if [ ! "$COMPILER" ]; then
   ERRS=$((ERRS + 1))
 fi
 
-if [ ! "$INPUT_FILE" ]; then 
+if [ ! "$INPUT_FILE" ]; then
   echo "An input file is needed to continue"
   ERRS=$((ERRS + 1))
 fi
@@ -297,26 +333,18 @@ if [[ ERRS -gt 0 ]]; then
   exit 1
 fi
 
-if [[ -f $OUTPUT_FILE ]]; then 
+if [[ -f $OUTPUT_FILE ]]; then
   rm $OUTPUT_FILE
 fi
 
 "$COMPILER"
 
-if [ "$FLAG_M" ]; then 
+if [ "$FLAG_M" ]; then
   cd $OLD_DIR
 fi
 
 if [ "$FLAG_R" ]; then
-  if [ ! "$FLAG_J" ]; then
-    echo CMD: "./$OUTPUT_FILE $PROGRAM_OPTS"
-    "./$OUTPUT_FILE" $PROGRAM_OPTS
-  elif [[ "$FLAG_J" && ! "$FLAG_JJ" ]]; then
-    echo "Please specify class to run < .. -JCLASS .. >"
-  else
-    run_java_compiler $PROGRAM_OPTS
-    cd $OLD_DIR
-  fi
+  run_execute_file
 fi
 
 exit 0

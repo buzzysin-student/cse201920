@@ -110,7 +110,7 @@
         <output ID="47"/>
         <output ID="48"/>
       </outputs>
-      <data latched_value="0110"/>
+      <data latched_value="1111"/>
     </module>
     <module ID="49" type="REGISTER">
       <dim orient="0" x="-950.0" y="-475.0"/>
@@ -146,7 +146,7 @@
         <output ID="62"/>
         <output ID="63"/>
       </outputs>
-      <data latched_value="0110"/>
+      <data latched_value="1110"/>
     </module>
     <module ID="64" type="MUX">
       <dim orient="0" x="-850.0" y="-700.0"/>
@@ -183,7 +183,7 @@
         <output ID="81"/>
         <output ID="82"/>
       </outputs>
-      <data clock_phase="1"/>
+      <data clock_phase="0"/>
     </module>
     <module ID="83" type="DEMUX">
       <dim orient="3" x="-650.0" y="-425.0"/>
