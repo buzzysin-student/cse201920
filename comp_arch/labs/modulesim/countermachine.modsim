@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <ModuleSim>
-  <view camX="294.31468883950095" camY="239.51140522095375" zoom="3"/>
+  <view camX="408.29004367764543" camY="587.1998551864955" zoom="3"/>
   <ModuleSim>
     <module ID="0" type="SWITCH">
       <dim orient="0" x="-675.0" y="25.0"/>
@@ -8,7 +8,7 @@
       <outputs>
         <output ID="1"/>
       </outputs>
-      <data switch_set="0001"/>
+      <data switch_set="0101"/>
     </module>
     <module ID="2" type="FANOUT">
       <dim orient="0" x="-675.0" y="-50.0"/>
@@ -110,7 +110,7 @@
         <output ID="47"/>
         <output ID="48"/>
       </outputs>
-      <data latched_value="1111"/>
+      <data latched_value="1000"/>
     </module>
     <module ID="49" type="REGISTER">
       <dim orient="0" x="-950.0" y="-475.0"/>
@@ -122,7 +122,7 @@
         <output ID="52"/>
         <output ID="53"/>
       </outputs>
-      <data latched_value="0000"/>
+      <data latched_value="1000"/>
     </module>
     <module ID="54" type="REGISTER">
       <dim orient="0" x="-950.0" y="-525.0"/>
@@ -134,7 +134,7 @@
         <output ID="57"/>
         <output ID="58"/>
       </outputs>
-      <data latched_value="0000"/>
+      <data latched_value="1000"/>
     </module>
     <module ID="59" type="REGISTER">
       <dim orient="0" x="-825.0" y="-525.0"/>
@@ -146,7 +146,7 @@
         <output ID="62"/>
         <output ID="63"/>
       </outputs>
-      <data latched_value="1110"/>
+      <data latched_value="1010"/>
     </module>
     <module ID="64" type="MUX">
       <dim orient="0" x="-850.0" y="-700.0"/>
@@ -266,11 +266,16 @@
     </link>
     <link src="75" targ="56" type="StraightPath">
       <ctrlPt x="-825.0" y="-600.0"/>
+      <ctrlPt x="-900.0" y="-600.0"/>
     </link>
     <link src="86" targ="51" type="StraightPath">
-      <ctrlPt x="-850.0" y="-400.0"/>
+      <ctrlPt x="-775.0" y="-400.0"/>
+      <ctrlPt x="-900.0" y="-400.0"/>
     </link>
-    <link src="76" targ="61" type="StraightPath"/>
     <link src="87" targ="46" type="StraightPath"/>
+    <link src="76" targ="61" type="StraightPath">
+      <ctrlPt x="-750.0" y="-550.0"/>
+      <ctrlPt x="-750.0" y="-525.0"/>
+    </link>
   </links>
 </ModuleSim>

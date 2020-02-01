@@ -41,16 +41,6 @@ Java Options
 
   $ ./compile -j ./oop/program.java # Outputs a .class file
 
--J <class>
-  Specify the (J)ava class name for execution
-
-  Note: if used, it must be used with -j and -r
-
--k < --options >
-  Pass options to JavaVM
-
-  Note: if used, it must be used with -J
-
 ---------------
 Haskell Options
 ---------------
@@ -125,10 +115,12 @@ COMPILER=""
 COMPILER_OPTS=""
 PROGRAM_OPTS=""
 MAKEFILE=""
-OLD_DIR=$PWD
+OLD_DIR=$(pwd)
 
 # Error parameters
 ERRS=0
+
+function rlpath { echo $(cd $(dirname $1); pwd)/$(basename $1); }
 
 run_ghci_compiler() {
   OUTPUT_FILE="${INPUT_FILE%.*}"
@@ -161,14 +153,24 @@ run_make_compiler() {
 run_javac_compiler() {
   OUTPUT_FILE="${INPUT_FILE%.*}"
   TARGET="${OUTPUT_FILE#"$INPUT_DIR/"}"
-  
-  JAVAC_CMD="javac $INPUT_FILE -d $INPUT_DIR/bin"
+
+  BIN_DIR=$(rlpath $INPUT_DIR)
+
+  if [ -f $BIN_DIR ]; then
+    BIN_DIR="$PWD"
+  fi
+
+  while [[ $(ls -1 $BIN_DIR | grep -s .java && echo 1 || echo ) ]]; do
+    BIN_DIR="${BIN_DIR%/*}"
+  done
+
+  JAVAC_CMD="javac $(echo $(find $BIN_DIR -name \*.java)) -d $BIN_DIR/bin"
   echo CMD: $JAVAC_CMD
   $JAVAC_CMD
 }
 
 run_execute_file() {
-  # Java files are exceptional to 
+  # Java files are exceptional to
   # normal compilation
   if [ "$FLAG_J" ]; then
     run_execute_java
@@ -181,14 +183,20 @@ run_execute_file() {
 }
 
 run_execute_java() {
-  if [ ! -d "$INPUT_DIR/bin" ]; then
-    echo "Something has gone wrong - I can't find the $INPUT_DIR/bin directory."
+  RUNCLASS=$TARGET
+
+  if [ ! -d "$BIN_DIR/bin" ]; then
+    echo "Something has gone wrong - I can't find the $BIN_DIR/bin directory."
     return
   fi
 
-  cd $INPUT_DIR/bin
+  cd $BIN_DIR/bin
 
-  JAVA_CMD="java $TARGET $PROGRAM_OPTS"
+  if [ "$FLAG_JJ" ]; then
+    RUNCLASS=$FLAG_JJ
+  fi
+
+  JAVA_CMD="java $TARGET.$RUNCLASS $PROGRAM_OPTS"
   echo CMD: $JAVA_CMD
 
   $JAVA_CMD
@@ -252,11 +260,11 @@ while getopts ":$H_OPTS$C_OPTS$J_OPTS$G_OPTS$O_OPTS" opts; do
     FLAG_J=1
     INPUT_FILE="$OPTARG"
     INPUT_DIR="${INPUT_FILE%/*}"
-    [ -f $INPUT_DIR ] && INPUT_DIR="."
+    # [ -f $INPUT_DIR ] && INPUT_DIR="."
     COMPILER=run_javac_compiler
     ;;
   J)
-    # Class path
+    # Specify class name to run
     FLAG_JJ="$OPTARG"
     ;;
   k)
