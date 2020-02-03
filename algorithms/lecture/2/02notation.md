@@ -1,4 +1,4 @@
-# 2. O-notation
+# O-notation
 
 ## Algorithm runtime
 
@@ -22,5 +22,3 @@ For small n, most algorithms are quite fast anyway.
 > An increasing function f will grow asymptotically at
 
 ## Racetrack principle
-
-If $f(k) \gte g(k)$ and $f'(n) \gte g'(n) for every n \gte k$ then for every $n \gte k$, it holds that $f(n) \gte g(n)$
