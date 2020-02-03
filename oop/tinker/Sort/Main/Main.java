@@ -8,6 +8,8 @@ import Main.Sorts.Quick;
 
 public class Main {
 
+  ICanCompare<Number, Number> comparison;
+
   public static void main(String[] args) {
 
     ICanCompare<Number, Number> comparison = (n1, n2) -> {
