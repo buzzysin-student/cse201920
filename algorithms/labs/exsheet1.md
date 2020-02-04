@@ -9,7 +9,7 @@ Give the formal proofs for:
 
 1. ![fn](<https://latex.codecogs.com/svg.latex?\inline 10\in O(1)}>)
 2. ![fn](<https://latex.codecogs.com/svg.latex?\inline 5n\in O(n)}>)
-3. ![fn](<https://latex.codecogs.com/svg.latex?\inline n^2+10n\in O(\frac{1}{10}n^3) >)
+3. ![fn](<https://latex.codecogs.com/svg.latex?\inline n^2+10n\in O(\frac{1}{10}n^3)>)
 4. ![fn](<https://latex.codecogs.com/svg.latex?\inline \sum_{i=1}^{n}i\in O(4n^2)>)
 
 ### Answers
@@ -18,7 +18,7 @@ Give the formal proofs for:
 
    If 10 in O(1) then 0 <= 10 < c \* 1 for all n
 
-   this implies c = 10
+   This is true when c = 10
 
    Since c exists, then 10 in O(1)
 
@@ -26,7 +26,7 @@ Give the formal proofs for:
 
    If 5n in O(n) then 0 <= 5n <= c \* n
 
-   this implies c = 5, for all n
+   This is true when c = 5, for all n
 
    Since c exists, then 5n in O(n)
 
