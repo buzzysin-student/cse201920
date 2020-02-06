@@ -1,3 +1,0 @@
-# Effiency <!-- omit in toc -->
-
-#
