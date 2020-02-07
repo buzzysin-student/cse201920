@@ -16,19 +16,15 @@ Give the formal proofs for:
 
 1. ![fn](<https://latex.codecogs.com/svg.latex?\inline 10\in O(1)>)
 
-   If 10 in O(1) then 0 <= 10 < c \* 1 for all n
+   ![fn](<https://latex.codecogs.com/svg.latex?\inline \text{If }10 \in O(1) \text{ then } 0 \leq 10 \leq c>)
 
-   This is true when c = 10
-
-   Since c exists, then 10 in O(1)
+   ![fn](<https://latex.codecogs.com/svg.latex?\inline \therefore c = 10>)
 
 2. ![fn](<https://latex.codecogs.com/svg.latex?\inline 5n\in O(n)}>)
 
-   If 5n in O(n) then 0 <= 5n <= c \* n
+   ![fn](<https://latex.codecogs.com/svg.latex?\inline \text{If }5n \in O(n)\text{ then }0 \leq 5n \leq cn}>)
 
-   This is true when c = 5, for all n
-
-   Since c exists, then 5n in O(n)
+   ![fn](<https://latex.codecogs.com/svg.latex?\inline \therefore c = 5>)
 
 3. ![fn](<https://latex.codecogs.com/svg.latex?\inline n^2+10n\in O(\frac{1}{10}n^3) >)
 

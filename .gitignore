@@ -1,6 +1,6 @@
 # Ignore 
 .vscode/
-*.code-workspace
+**/*.code-workspace
 
 # Keep
 !Makefile

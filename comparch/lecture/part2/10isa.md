@@ -1,9 +1,6 @@
 # Instruction Set Architecture <!--omit in toc-->
 
-## Contents
-
 - [Instruction Set Architecture](#instruction-set-architecture)
-  - [Contents](#contents)
   - [What is an ISA](#what-is-an-isa)
   - [What comprises an ISA](#what-comprises-an-isa)
   - [The 'I' in ISA](#the-i-in-isa)
@@ -72,16 +69,12 @@ There are three main classes of instructions for **simple processors**:
 - Memory - `load, store, etc.`
 - Control flow - `b, bifeq, bifneq, etc.`
 
-More complex ISAs would contain support for *vector/digital signal processing*.
+More complex ISAs would contain support for _vector/digital signal processing_.
 
 ## The nature of instructions
 
-Consider: 
+Consider:
 
 - Common operations
 - Representative applications
 - Future-proofing
-
-$
-P(\text{Success at uni})=\{_{1\text{ if productive(x)}}^{0\text{ otherwise}}
-$
