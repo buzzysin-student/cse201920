@@ -1,5 +1,11 @@
 # Introduction to Algorithms <!-- omit in toc -->
 
+[Previous][prev] | [Next][next] | [Index][index]
+
+[prev]: ./index.md
+[next]: ./index.md
+[index]: ./index.md
+
 - [Example: Peak-finding](#example-peak-finding)
   - [Pseudocode](#pseudocode)
   - [Algorithm completion state](#algorithm-completion-state)

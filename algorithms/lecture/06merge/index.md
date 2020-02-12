@@ -2,8 +2,6 @@
 
 [Previous][prev] | [Next][next] | [Index][index]
 
-[prev]: ../02onotation/index.md
-[next]: ../04ramsearch/index.md
+[prev]: ../05invariants/index.md
+[next]: ./index.md
 [index]: ./index.md
-
-- [Theta and Omega](./01thetaomega.md)

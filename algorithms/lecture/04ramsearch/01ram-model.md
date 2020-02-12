@@ -1,5 +1,11 @@
 # The RAM model <!-- omit in toc -->
 
+[Previous][prev] | [Next][next] | [Index][index]
+
+[prev]: ./index.md
+[next]: ./02searches.md
+[index]: ./index.md
+
 - [The RAM Models](#the-ram-models)
   - [Description](#description)
   - [Notation](#notation)

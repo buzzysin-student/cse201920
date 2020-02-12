@@ -3,7 +3,7 @@
 USAGE=$(
   cat <<END
 
-COMPILE Taharka Okai - (c) 2019 
+COMPILE Taharka Okai - (c) 2020 
 
 =========
 = Usage =
@@ -163,7 +163,10 @@ run_javac_compiler() {
     BIN_DIR="$PWD"
   fi
 
+
+
   while [[ $(ls -1 $BIN_DIR | grep -s .java && echo 1 || echo) ]]; do
+    echo $(ls -1 $BIN_DIR);
     BIN_DIR="${BIN_DIR%/*}"
   done
 

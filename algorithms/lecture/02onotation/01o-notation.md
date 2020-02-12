@@ -1,5 +1,11 @@
 # O-notation <!-- omit in toc -->
 
+[Previous][prev] | [Next][next] | [Index][index]
+
+[prev]: ./index.md
+[next]: ./index.md
+[index]: ./index.md
+
 - [Introductory concepts](#introductory-concepts)
   - [Algorithm runtime](#algorithm-runtime)
   - [Asymptotic complexity](#asymptotic-complexity)

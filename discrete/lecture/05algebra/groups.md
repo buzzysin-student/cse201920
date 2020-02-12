@@ -33,6 +33,6 @@ This is the property that "bracketing" doesn't change the result of the computat
 
 This is the property that there exists an element in the set that has no effect when computed with another element.
 
-![fn](<>)
+![fn](<https://latex.codecogs.com/svg.latex? \exists x\in G : >)
 
 ### Inverse
