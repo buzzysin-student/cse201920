@@ -82,7 +82,7 @@ return -1;
 
 ### Proof that every array has a peak
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Suppose that \ensuremath{A} is an array of length \ensuremath{n} \ensuremath{{a_0, a_1, a_2, ..., a_{n-1}}}, and has no peaks.}>)
+![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Suppose that \ensuremath{A} is an array of length \ensuremath{n} \ensuremath{ {a_0, a_1, a_2, ..., a_{n-1} }}, and has no peaks.}>)
 
 ![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Then \ensuremath{a_1\geq a_0} as otherwise \ensuremath{a_1} would be a peak.}>)
 

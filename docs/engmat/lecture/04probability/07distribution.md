@@ -53,7 +53,7 @@ This is one of the most simple distributions to calculate.
 
 #### The Bernoulli process
 
-The Geometric Distrubution builds on the idea of the Benoulli distribution. It asks the question:
+The Geometric Distribution builds on the idea of the Bernoulli distribution. It asks the question:
 
 > How many trials, _X_, do I need before I get a success?
 
@@ -73,7 +73,7 @@ Therefore the probability function for the random variable _X_ is:
 
 The binomial distribution asks the question
 
-> How many sucesses, _X_, do I receive within _n_ trials?
+> How many successes, _X_, do I receive within _n_ trials?
 
 In _n_ trials:
 
@@ -83,7 +83,7 @@ In _n_ trials:
 
 To avoid double-counting permutations, the binomial coefficient is formed:
 
-![fn](<https://latex.codecogs.com/svg.latex?{{n}\choose{k}} = \frac{n!}{k!(n-k)!}>)
+![fn](<https://latex.codecogs.com/svg.latex?{ {n}\choose{k} } = \frac{n!}{k!(n-k)!}>)
 
 ### Definition of Binomial
 

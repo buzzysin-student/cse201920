@@ -7,6 +7,6 @@
 - [Object-oriented programming](./objorient/lecture/1/index.md)
 - [Engineering Mathematics](./engmat/lecture/01complex/index.md)
 - [Object-oriented programming](./objorient/lecture/1/index.md)
-- [](./discrete/lecture/01numtheory/bases.md)
+- [Discrete Mathematics](./discrete/lecture/01numtheory/bases.md)
 
 > &copy; Taharka Okai - 2020
