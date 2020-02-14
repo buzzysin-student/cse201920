@@ -1,7 +1,5 @@
 # Computer Science and Electronics 2019/2020
 
-{% include maths.html %}
-
 ## Table of contents
 
 - [Intro. to Computer Architecture](./comparch/lecture.md)
