@@ -1,2 +1,3 @@
 # Dependencies
 markdown: kramdown
+theme: "jekyll-theme-mininal"
