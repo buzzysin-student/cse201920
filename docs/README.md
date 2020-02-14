@@ -9,4 +9,6 @@
 - [Object-oriented programming](./objorient/lecture/1/index.md)
 - [Discrete Mathematics](./discrete/lecture/01numtheory/bases.md)
 
+$$ \phi = \frac{1\pm\sqrt{5}}{2} $$
+
 > &copy; Taharka Okai - 2020
