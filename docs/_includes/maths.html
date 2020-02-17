@@ -1,5 +1,9 @@
 <script type="text/javascript">
 window.MathJax = {
+  tex2jax: {
+    inlineMath: [ ['$','$'] ],
+    processEscapes: true
+  },
   startup: {
     ready: () => {
       MathJax.startup.defaultReady();
