@@ -82,15 +82,15 @@ return -1;
 
 ### Proof that every array has a peak
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Suppose that \ensuremath{A} is an array of length \ensuremath{n} \ensuremath{ {a_0, a_1, a_2, ..., a_{n-1} }}, and has no peaks.}>)
+$\text{Suppose that } A \text{ is an array of length } n,\left\{ a_0, a_1, a_2, ..., a_{n-1} \right\}, \text{ and has no peaks. }$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Then \ensuremath{a_1\geq a_0} as otherwise \ensuremath{a_1} would be a peak.}>)
+$\text{Then }a_1\geq a_0 \text{as otherwise } a_1 \text{ would be a peak.}$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Then \ensuremath{a_2\geq a_1} as otherwise \ensuremath{a_2} would be a peak.}>)
+$\text{Then }a_2\geq a_1 \text{ as otherwise }a_2 \text{ would be a peak.}$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{This reasoning cascades for all \ensuremath{i\leq n - 1}, i.e. \ensuremath{a_i \geq a_{i-1}}.}>)
+$\text{This reasoning cascades for all }i\leq n - 1, \text{ i.e. }a_i \geq a_{i-1}.$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{However, this implies that \ensuremath{a_{n-1}} is a peak, which is a contradiction.}>)
+$\text{However, this implies that } a_{n-1} \text{ is a peak, which is a contradiction.}$
 
 ## An improvement
 

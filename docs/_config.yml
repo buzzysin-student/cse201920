@@ -4,4 +4,6 @@ theme: "jekyll-theme-primer"
 defaults:
   values:
     layout: "default"
-    
+
+plugins:
+  - jemoji

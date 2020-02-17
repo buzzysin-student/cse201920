@@ -40,11 +40,11 @@ For small n, most algorithms are quite fast anyway.
 
 > Lemma:
 >
-> ![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Consider the increasing functions \ensuremath{f,g: \mathbb{N}\rightarrow\mathbb{N}} }>)
+> $\text{Consider the increasing functions } f,g: \mathbb{N}\rightarrow\mathbb{N}$
 >
-> ![fn](<https://latex.codecogs.com/svg.latex?\inline \text{\ensuremath{f(n)} asymptotically grows at least as fast as \ensuremath{g(n)}, if and only if:}>)
+> $f(n)\text{ asymptotically grows at least as fast as } g(n) \text{ if and only if:}$
 >
-> ![fn](<https://latex.codecogs.com/svg.latex?\inline \text{\ensuremath{\exists n_0: f(n)\geq g(n)} and \ensuremath{n \geq n_0}}>)
+> $\exists n_0: f(n)\geq g(n) \text{ and } n \geq n_0$
 
 ## Big-O Notation (O-Notation)
 
@@ -52,64 +52,64 @@ For small n, most algorithms are quite fast anyway.
 
 O-notation is an extension of the above lemma:
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{If it holds that  \ensuremath{\exists C,n_0: f(n)\leq Cg(n)} and \ensuremath{n \geq n_0} then}>)
+$\text{If it holds that }\exists C,n_0: f(n)\leq Cg(n)\text{ and }n \geq n_0\text{ then}$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{\ensuremath{f(n)\in O(g(n))}}>)
+$f(n)\in O(g(n))$
 
 ### Example
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Show that \ensuremath{0.5n \notin O(\frac{n}{\log_2n})}}>)
+$\text{Show that } 0.5n \notin O(\frac{n}{\log_2n})$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Assume that \ensuremath{0.5n\in O(\frac{n}{\log_2n})}}>)
+$\text{Assume that }0.5n\in O(\frac{n}{\log_2n})$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{This implies that there exists some \ensuremath{n\geq n_0} for which \ensuremath{0.5n \leq \frac{cn}{\log_2n}}}>)
+$\text{This implies that there exists some }n\geq n_0 \text{ for which } 0.5n \leq \frac{cn}{\log_2n}$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \implies 0.5 \leq \frac{c}{\log_2n}>)
+$\implies 0.5 \leq \frac{c}{\log_2n}$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \implies \log_2n \leq 2c>)
+$\implies \log_2n \leq 2c$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \implies n \leq 2^{2c}>)
+$\implies n \leq 2^{2c}$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{However, this is a contradiction because this does not hold for all } n\geq1>)
+$\text{However, this is a contradiction because this does not hold for all } n\geq1$
 
 ### Racetrack principle
 
 Sometimes its not obvious whether a function asymptotically grows at least as fast as another.
 
-When this is the case, the racetrack princple is needed:
+When this is the case, the racetrack principle is needed:
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{If \ensuremath{f(k)\geq g(k)} and \ensuremath{f'(n)\geq g'(n)} for every \ensuremath{n\geq k} then \ensuremath{f(n) \geq g(n)}}>)
+$\text{If }f(k)\geq g(k)\text{ and } f'(n)\geq g'(n)\text{ for every }n\geq k\text{ then }f(n) \geq g(n)$
 
 #### Worked Example from Worksheet 1
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Show that for }n\geq 1, n\leq e^n>)
+$\text{Show that for }n\geq 1, n\leq e^n$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Step 1: Base case - For } n = 1, e^n \geq n \because e \geq 1>)
+$\text{Step 1: Base case - For } n = 1, e^n \geq n \because e \geq 1$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Step 2: Derivative - Observe that }  \frac{d}{dn}(e^n) \geq \frac{d}{dn}(n)>)
+$\text{Step 2: Derivative - Observe that }  \frac{d}{dn}(e^n) \geq \frac{d}{dn}(n)$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \because e^n \geq 1 \implies n\geq \ln 1(0), \text{ so } n \geq 1 (\geq 0)>)
+$\because e^n \geq 1 \implies n\geq \ln 1(0), \text{ so } n \geq 1 (\geq 0)$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Step 3: Invoke the racetrack principle - since } e^k \geq k \text{ for } k=1\newline\newline\text{ and } \frac{d}{dn}(e^n) \geq \frac{d}{dn}(n)\text{ for  }n \geq 1 \text{ then } e^n \geq n \text{ for all }n\geq k(=1)>)
+$\text{Step 3: Invoke the racetrack principle - since } e^k \geq k \text{ for } k=1\newline\newline\text{ and } \frac{d}{dn}(e^n) \geq \frac{d}{dn}(n)\text{ for  }n \geq 1 \text{ then } e^n \geq n \text{ for all }n\geq k(=1)$
 
 ## Properties of Big-O
 
 ### Sum/product of Functions
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{If }f(n)\in O(n_1)\text{ and }g(n)\in O(n_2)\text{ then }f(n)+g(n)\in O(n_1+n_2)>)
+$\text{If }f(n)\in O(n_1)\text{ and }g(n)\in O(n_2)\text{ then }f(n)+g(n)\in O(n_1+n_2)$
 
 Similarly:
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{If }f(n)\in O(n_1)\text{ and }g(n)\in O(n_2)\text{ then }f(n)\cdot g(n)\in O(n_1\cdot n_2)>)
+$\text{If }f(n)\in O(n_1)\text{ and }g(n)\in O(n_2)\text{ then }f(n)\cdot g(n)\in O(n_1\cdot n_2)$
 
 ### Polynomial Functions
 
 #### False proof of polynomial in O(n)
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Assume that }n^2\in O(n)>)
+$\text{Assume that }n^2\in O(n)$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \therefore n^2 = n+n+...+n\text{ (n times) = O(n) +O(n)+...+O(n) (n times)}>)
+$\therefore n^2 = n+n+...+n\text{ (n times) = O(n) +O(n)+...+O(n) (n times)}$
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \therefore n^2 \in O(n)>) :x:
+$\therefore n^2 \in O(n)$ :x:
 
 Orders can only be added a **known number of times**, i.e. O(n) cannot be added n times.
