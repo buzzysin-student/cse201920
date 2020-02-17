@@ -1,4 +1,6 @@
 # Dependencies
+markdown: kramdown
+
 theme: "jekyll-theme-minimal"
 defaults:
   values:
