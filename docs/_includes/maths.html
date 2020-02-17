@@ -1,7 +1,7 @@
 <script type="text/javascript">
 window.MathJax = {
   tex2jax: {
-    inlineMath: [ ['$','$'] ],
+    inlineMath: [ ['$','$'] , ["\\(","\\)"]  ],
     processEscapes: true
   },
   startup: {
@@ -9,6 +9,7 @@ window.MathJax = {
       MathJax.startup.defaultReady();
       MathJax.startup.promise.then(() => {
         console.log('MathJax initial typesetting complete');
+        console.log('Added delimiters');
       });
     }
   },
