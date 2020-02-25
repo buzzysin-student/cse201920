@@ -1,6 +1,6 @@
 # Theta and Omega <!-- omit in toc -->
 
-[Previous][prev] | [Next][next] | [Index][index]
+[Previous Section][prev] | [Next Section][next] | [Section Contents][index]
 
 [prev]: ../02onotation/index.md
 [next]: ../04ramsearch/index.md

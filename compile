@@ -163,14 +163,13 @@ run_javac_compiler() {
     BIN_DIR="$PWD"
   fi
 
-
+  echo $BIN_DIR
 
   while [[ $(ls -1 $BIN_DIR | grep -s .java && echo 1 || echo) ]]; do
-    echo $(ls -1 $BIN_DIR);
     BIN_DIR="${BIN_DIR%/*}"
   done
 
-  JAVAC_CMD="javac $(echo $(find $BIN_DIR -name \*.java)) -d $BIN_DIR/bin"
+  JAVAC_CMD="javac $(echo $(find $BIN_DIR -name \*.java)) -d $BIN_DIR/bin $COMPILER_OPTS"
   echo CMD: $JAVAC_CMD
   $JAVAC_CMD
 }
@@ -206,7 +205,7 @@ run_execute_java() {
     TARGET=""
   fi
 
-  JAVA_CMD="java $TARGET$([[ $TARGET ]] && echo . || echo "")$RUNCLASS $PROGRAM_OPTS"
+  JAVA_CMD="java $FLAG_K $TARGET$([[ $TARGET ]] && echo . || echo "")$RUNCLASS $PROGRAM_OPTS"
   echo CMD: $JAVA_CMD
 
   $JAVA_CMD
@@ -272,6 +271,7 @@ while getopts ":$H_OPTS$C_OPTS$J_OPTS$G_OPTS$O_OPTS" opts; do
     INPUT_DIR="${INPUT_FILE%/*}"
     # [ -f $INPUT_DIR ] && INPUT_DIR="."
     COMPILER=run_javac_compiler
+    FLAG_K="$FLAG_K -ea"
     ;;
   J)
     # Specify class name to run
@@ -279,7 +279,7 @@ while getopts ":$H_OPTS$C_OPTS$J_OPTS$G_OPTS$O_OPTS" opts; do
     ;;
   k)
     # Pass arguments to program
-    FLAG_K="$OPTARG"
+    FLAG_K="$FLAG_K $OPTARG"
     ;;
   # ? Global Options
   i)

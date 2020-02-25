@@ -1,7 +1,7 @@
-# Theta and Omega <!-- omit in toc -->
+# Merge Sort 1 <!-- omit in toc -->
 
-[Previous][prev] | [Next][next] | [Index][index]
+[Previous Section][prev] | [Next Section][next] | [Section Contents][index]
 
 [prev]: ../05invariants/index.md
-[next]: ./index.md
-[index]: ./index.md
+[next]: ../07merge/index.md
+[index]: ../index.md

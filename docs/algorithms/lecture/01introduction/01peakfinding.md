@@ -1,6 +1,6 @@
 # Introduction to Algorithms <!-- omit in toc -->
 
-[Previous][prev] | [Next][next] | [Index][index]
+[~~Previous Chapter~~][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
 
 [prev]: ./index.md
 [next]: ./index.md
@@ -82,7 +82,7 @@ return -1;
 
 ### Proof that every array has a peak
 
-$\text{Suppose that } A \text{ is an array of length } n,\left\{ a_0, a_1, a_2, ..., a_{n-1} \right\}, \text{ and has no peaks. }$
+$\text{Suppose that } A \text{ is an array of length } n, \{ a_0, a_1, a_2, ..., a_{n-1} \}, \text{ and has no peaks. }$
 
 $\text{Then }a_1\geq a_0 \text{as otherwise } a_1 \text{ would be a peak.}$
 

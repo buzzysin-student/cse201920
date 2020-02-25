@@ -1,6 +1,6 @@
 # Loop invariants <!-- omit in toc -->
 
-[Previous][prev] | [Next][next] | [Index][index]
+[~~Previous Chapter~~][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
 [prev]: ./index.md
 [next]: ./02insertion.md

@@ -1,6 +1,6 @@
 # O-notation <!-- omit in toc -->
 
-[Previous][prev] | [Next][next] | [Index][index]
+[~~Previous Chapter~~][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
 
 [prev]: ./index.md
 [next]: ./index.md
@@ -28,9 +28,7 @@ Runtime is a function that maps input length of data into an algorithm to the nu
 - Worst-case runtime
 - Average-case runtime
 
-The best function of runtime depends on the size of the input (i.e. depending on the input length n)
-
-    ! TODO -> Example here
+The best function of runtime depends on the size of the input (i.e. depending on the input length n).
 
 ### Asymptotic complexity
 
@@ -55,6 +53,8 @@ O-notation is an extension of the above lemma:
 $\text{If it holds that }\exists C,n_0: f(n)\leq Cg(n)\text{ and }n \geq n_0\text{ then}$
 
 $f(n)\in O(g(n))$
+
+In a way, it can be thought that the function $f$ can be smaller than $g$ times some factor.
 
 ### Example
 

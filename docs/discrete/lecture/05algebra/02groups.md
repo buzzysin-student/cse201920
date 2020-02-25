@@ -15,7 +15,7 @@ A group consists of a set and a binary operation:
 
 ## Axioms of a group
 
-![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Consider a set }G \text{ and an operation, }\bullet\text{, forming the group} \left\langle G,\bullet \right\rangle>)
+![fn](<https://latex.codecogs.com/svg.latex?\inline \text{Consider a set }G \text{ and an operation, }\bullet\text{, forming the group} \langle G,\bullet \rangle>)
 
 ### Closed operation (closure)
 
