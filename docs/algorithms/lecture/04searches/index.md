@@ -1,4 +1,4 @@
-# The RAM model and Searching <!-- omit in toc -->
+# Searching algorithms <!-- omit in toc -->
 
 [Previous Section][prev] | [Next Section][next] | [Section Contents][index]
 
@@ -6,5 +6,4 @@
 [next]: ../05invariants/index.md
 [index]: ./index.md
 
-- [RAM Model](./01ram-model.md)
-- [Searching algorithms](./02searches.md)
+- [Searching algorithms](./01searches.md)

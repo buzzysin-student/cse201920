@@ -1,5 +1,11 @@
 # Introduction to Linear Circuits <!-- omit in toc -->
 
+[Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
+
+[prev]: ./02geometry.md
+[next]: ./04hyperbolic.md
+[index]: ./index.md
+
 - [Ohm's Law](#ohms-law)
 - [Resistance and Conductance](#resistance-and-conductance)
 - [Active/Passive Elements](#activepassive-elements)
@@ -22,7 +28,7 @@ Additionally, the resistance of a conductive material can be defined as:
 
 This yields:
 
-![fn](<https://latex.codecogs.com/svg.latex?R=\rho \frac{l}{A}>)
+$R=\rho \frac{l}{A}$
 
 ## Resistance and Conductance
 

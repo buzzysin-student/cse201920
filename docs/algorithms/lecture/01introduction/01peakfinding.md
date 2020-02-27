@@ -4,13 +4,14 @@
 
 [prev]: ./index.md
 [next]: ./index.md
-[index]: ./index.md
+[index]: ../index.md
 
 - [Example: Peak-finding](#example-peak-finding)
   - [Pseudocode](#pseudocode)
   - [Algorithm completion state](#algorithm-completion-state)
   - [Proof that every array has a peak](#proof-that-every-array-has-a-peak)
 - [An improvement](#an-improvement)
+- [Array accesses](#array-accesses)
 
 ## Example: Peak-finding
 
@@ -125,3 +126,15 @@ if A[[n/2 - 1]] >= A[[n/2]] then
 else
   return n/2 + 1 + fast_peak_finding A[[n/2 + 1, n - 1]]
 ```
+
+## Array accesses
+
+To count the number of calls to the fast-peak-finding algorithm, a recurrence relation would have to be solved. 
+
+Let $R(n)$ be the number of times that the algorithm is a recursion on a size of input $n$. Then:
+
+$R(1)=R(2)=1$ because there is no recursion on inputs of size $1$ and $2$
+
+$R(n) \leq R(\lfloor\frac{n}{2}\rfloor) + 1$ because the array is halved per iteration.
+
+This is a recurrence relation that will be visited in later chapters. The solution for a size $n$ array is $5\lceil \log_2{n}\rceil$

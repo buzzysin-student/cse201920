@@ -1,5 +1,11 @@
 # Geometry of linear systems <!-- omit in toc -->
 
+[Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
+
+[prev]: ./02geometry.md
+[next]: ./04hyperbolic.md
+[index]: ./index.md
+
 - [3D interpretation of linear systems](#3d-interpretation-of-linear-systems)
   - [Solution constraints](#solution-constraints)
   - [Zero determinant](#zero-determinant)

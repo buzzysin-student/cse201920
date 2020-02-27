@@ -1,6 +1,10 @@
 # Random variables <!-- omit in toc -->
 
-[Next part](./randomvars-2.md)
+[Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
+
+[prev]: ./02geometry.md
+[next]: ./04hyperbolic.md
+[index]: ./index.md
 
 - [What is a random variable](#what-is-a-random-variable)
   - [Example](#example)

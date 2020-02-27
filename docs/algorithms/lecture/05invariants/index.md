@@ -2,7 +2,7 @@
 
 [Previous Section][prev] | [Next Section][next] | [Section Contents][index]
 
-[prev]: ../04ramsearch/index.md
+[prev]: ../04searches/index.md
 [next]: ../06merge/index.md
 [index]: ../index.md
 

@@ -17,6 +17,7 @@
   - [Sum/product of Functions](#sumproduct-of-functions)
   - [Polynomial Functions](#polynomial-functions)
     - [False proof of polynomial in O(n)](#false-proof-of-polynomial-in-on)
+  - [Hierarchy of runtimes](#hierarchy-of-runtimes)
 
 ## Introductory concepts
 
@@ -113,3 +114,19 @@ $\therefore n^2 = n+n+...+n\text{ (n times) = O(n) +O(n)+...+O(n) (n times)}$
 $\therefore n^2 \in O(n)$ :x:
 
 Orders can only be added a **known number of times**, i.e. O(n) cannot be added n times.
+
+### Hierarchy of runtimes
+
+Note: this is approximate
+
+|   Rank   |     Runtime      |      Description       |
+| :------: | :--------------: | :--------------------: |
+|   Good   |      $O(1)$      |  Constant operations   |
+|          | $O(\log \log n)$ |  Sub-logarithmic time  |
+|          |   $O(\log n)$    |    Logarithmic time    |
+|          |  $O(\log^k n)$   | Poly-logarithmic time  |
+|          |      $O(n)$      |      Linear time       |
+|   Bad    |     $O(n^2)$     |     Quadratic time     |
+|          |     $O(n^c)$     |    Polynomial time     |
+|          |     $O(c^n)$     |    Exponential time    |
+| Very Bad |   $O(c^{c^n})$   | Super-exponential time |

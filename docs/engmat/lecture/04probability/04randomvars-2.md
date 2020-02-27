@@ -1,6 +1,10 @@
 # Random variables (part 2) <!-- omit in toc -->
 
-[Previous part](./randomvars.md)
+[Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
+
+[prev]: ./02geometry.md
+[next]: ./04hyperbolic.md
+[index]: ./index.md
 
 - [Discrete and continuous random variables](#discrete-and-continuous-random-variables)
 - [Combinations of random variables](#combinations-of-random-variables)
@@ -18,9 +22,9 @@ A continuous random variable describes a sample set ![#f1]
 
 Consider the following random variables:
 
-![fn](<https://latex.codecogs.com/svg.latex?\text{Throwing die n}:=D_n={1,2,3,4,5,6}}>)
+$\text{Throwing die n}:=D_n={1,2,3,4,5,6}$
 
-![fn](<https://latex.codecogs.com/svg.latex?\text{Throwing a coin}:=C={H,T}}>)
+$\text{Throwing a coin}:=C={H,T}$
 
 There is the situation where:
 
@@ -32,7 +36,7 @@ There is the situation where:
 
 The cumulative distribution function of a random variable is the cumulative sum of probabilities up to a point in the sample space:
 
-![fn](<https://latex.codecogs.com/svg.latex?F_X(x)=\sum_x P(X\leq x)>)
+$F_X(x)=\sum_x P(X\leq x)$
 
 ## Measures of location
 
@@ -42,13 +46,13 @@ The mean is also called the expected value of the random variable, i.e. what doe
 
 Definition - discrete:
 
-![fn](<https://latex.codecogs.com/svg.latex?E(X)=\mu:=\sum_x xP(X=x)>)
+$E(X)=\mu:=\sum_x xP(X=x)$
 
 or the sum of the product of the probability function and the random variable.
 
 Definiton - continuous:
 
-![fn](<https://latex.codecogs.com/svg.latex?E(f(x))=\mu:=\int_a^b xf(x)dx\text{ where }x\in[a,b]>)
+$E(f(x))=\mu:=\int_a^b xf(x)dx\text{ where }x\in[a,b]$
 
 ### Median
 
@@ -56,7 +60,7 @@ The median is the "halfway" point in a distribution - which outcome is expected 
 
 Definition:
 
-![fn](<https://latex.codecogs.com/svg.latex?\text{Median}=x:P(X\leq x)=P(X\geq x)=0.5>)
+$\text{Median}=x:P(X\leq x)=P(X\geq x)=0.5$
 
 ### Mode
 

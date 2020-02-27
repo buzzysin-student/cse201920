@@ -30,7 +30,7 @@ console.log("Syntax highlighted codeblock")
 console.log("This is also multiline")
 ```
 
-![alt-text](<https://source.unsplash.com/featured/?book>)
+![alt-text](<https://source.unsplash.com/featured/?book$
 Image
 
 [Click me](./index.md)

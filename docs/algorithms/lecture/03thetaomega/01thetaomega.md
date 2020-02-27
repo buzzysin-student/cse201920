@@ -1,9 +1,9 @@
 # Theta and Omega <!-- omit in toc -->
 
-[~~Previous Chapter~~][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
+[~~Previous Chapter~~][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
 [prev]: ./index.md
-[next]: ./index.md
+[next]: ./02ram-model.md
 [index]: ./index.md
 
 - [Limitations of Big-O](#limitations-of-big-o)
@@ -126,7 +126,7 @@ $\text{Note that if }ac_1 = bc_2, \text{ where } a,b > 0\text{, the statement ho
 
 Representation of the set: $O(f)$
 
-$O(f(n)) := \{ g(n) : \exists c,n_0 cf(n) \leq g(n) \text{ where } n\geq n_0 \}$
+$O(f(n)) := \{ g(n) : \exists c,n_0\space cf(n) \leq g(n) \text{ where } n\geq n_0 \}$
 
 In words: $O(f)$ is the set of **functions** where, when multiplied by a **positive integer factor**, are **asymptotically greater than** $f$ after some value $n_0$.
 
@@ -149,6 +149,8 @@ Example: $x^2 \in \Theta(x^2)$
 ### Big Omega of f
 
 Representation of the set: $\Omega(f)$
+
+$\Omega(f(n)) := \{ g(n) : \exists c,n_0\space cg(n) \leq f(n) \text{ where } n\geq n_0 \}$
 
 In words: $\Omega(f)$ is the set of **functions** that are **asymptotically less than** $f$ when it is multiplied by a **positive integer factor**.
 

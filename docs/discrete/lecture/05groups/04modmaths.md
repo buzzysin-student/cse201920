@@ -19,7 +19,7 @@
 | 4   | 4   | 5   | 0   | 1   | 2   | 3   |
 | 5   | 5   | 0   | 1   | 2   | 3   | 4   |
 
-![fn](<https://latex.codecogs.com/svg.latex?G=\langle [0,1,2,3,4,5], + \rangle>) is an abelian group under addition _mod 6_
+$G=\langle [0,1,2,3,4,5], + \rangle$ is an abelian group under addition _mod 6_
 
 - Closed? Yes
 - Associative? Yes
@@ -46,7 +46,7 @@
 
 [times]: <https://latex.codecogs.com/svg.lates? \times>
 
-![fn](<https://latex.codecogs.com/svg.latex?G=\langle [1,2,3,4,5], \times \rangle>) is **not** an abelian group under multiplication _mod 6_
+$G=\langle [1,2,3,4,5], \times \rangle$ is **not** an abelian group under multiplication _mod 6_
 
 - Closed? **No**, 0 is not in _G_
 - Associative? Yes
@@ -54,7 +54,7 @@
 - Inverse? **No**
 - Commutative? Yes
 
-**However** the group ![fn](<https://latex.codecogs.com/svg.latex?\inline G=\langle [1,5], \times \rangle>) is an abelian group under multiplication _mod 6_
+**However** the group $ G=\langle [1,5], \times \rangle$ is an abelian group under multiplication _mod 6_
 
 ## Proving inverses in modular arithmetic
 

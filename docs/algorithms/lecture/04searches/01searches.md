@@ -1,17 +1,11 @@
 # Searches and Proofs <!-- omit in toc -->
 
-[Previous Chapter][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
+[~~Previous Chapter~~][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
 
-[prev]: ./01ram-model.md
+[prev]: ./index.md
 [next]: ./index.md
 [index]: ./index.md
 
-- [Runtime considerations](#runtime-considerations)
-  - [Best case](#best-case)
-  - [Worst case](#worst-case)
-  - [Average case](#average-case)
-  - [Goals of algorithm analysis](#goals-of-algorithm-analysis)
-  - [Example analysis](#example-analysis)
 - [Linear Search](#linear-search)
   - [Linear Example](#linear-example)
   - [Linear Best-case runtime](#linear-best-case-runtime)
@@ -21,68 +15,6 @@
   - [Binary Example](#binary-example)
   - [Binary Best-case runtime](#binary-best-case-runtime)
   - [Binary Worst-case runtime](#binary-worst-case-runtime)
-
-## Runtime considerations
-
-Runtime can be computed for different situations:
-
-- Specific input, i.e. what is the exact number of operations given a certain input?
-- Best case, i.e. least number of operations?
-- Worst case, i.e. most number of operations?
-- Average case, i.e. average number of operations given a set of inputs?
-
-Here are some standard definitions:
-
-Let $S(n)$ be the set of possible inputs of length $n$ for an algorithm.
-
-For $I \in S(n)$, let $T(I)$ be the runtime for this specific input.
-
-### Best case
-
-$$\large \underset{I\in S(n)}{\min} T(I)$$
-
-In words: the runtime for an input $I$ where I is in the set of possible input of length $n$, such that $T(I)$ is a **minimum**.
-
-### Worst case
-
-$$\large \underset{I\in S(n)}{\max} T(I)$$
-
-In words: the runtime for an input $I$ where I is in the set of possible input of length $n$, such that $T(I)$ is a **maximum**.
-
-### Average case
-
-$$\large \frac{1}{|S(n)|} \underset{I\in S(n)}{\sum} T(I)$$
-
-In words: the average of the runtime of all possible inputs of length $n$ ($|S(n)|$ denotes the size of the set of inputs).
-
-### Goals of algorithm analysis
-
-- Runtime analysis: to compute the number of operations that take O(1) time
-- **Space analysis**: to compute the amount of memory used
-
-### Example analysis
-
-```py
-algorithm
-
-Require an integer array `A` with length `n`
-
-s <- 0 # takes O(1) time
-for i <- 0...n - 1 do # n times
-  for j <- i...2i do # i+1 times
-    s <- A[i] + s # takes O(1) time
-```
-
-This algorithm executes $i+1$ in the inner loop and $n$ times in the outer loop. So the total number of loops can be summed as follows:
-
-$$\sum_{i=0}^{n-1} (i+1)\times O(1)$$
-$$O(1)\sum_{i=0}^{n-1} (i+1)$$
-$$O(1)\times [\sum_{i=0}^{n-1} i + \sum_{i=0}^{n-1} 1]$$
-$$O(1)\times [\frac{n(n-1)}{2} + n]$$
-$$O(1)\times \frac{n(n+1)}{2}$$
-$$O(1)\times (n^2 + n)$$
-$$O(n^2)$$
-
 
 ## Linear Search
 
@@ -174,8 +106,10 @@ THis is due to the same reason as the linear search - the first check could be t
 
 Let $r$ be the number of recursive calls, and $n$ be the size of the array. Then it holds that:
 
-$\large \frac{n}{2^r} \leq 2$
+$\frac{n}{2^r} \leq 2$
 
 This is because of the boundary condition of the algorithm - the recursion stops then the array size is less than or equal to $2$.
 
-$\therefore n\leq 2^{r+1}\implies \log n\leq (r+1) \log 2$
+$\therefore n\leq 2^{r+1}\implies \log_2 n\leq (r+1) \implies \log_2 n-1\leq r$
+
+Since $\lceil \log_2{n} - 1\rceil \leq \log_2 n$, then the number of iterations is in $O(\log n)$

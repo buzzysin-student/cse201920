@@ -2,7 +2,7 @@
 
 ## Introduction
 
-## Symbology
+## Symbolisms
 
 ## Types of amplifier
 
