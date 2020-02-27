@@ -84,15 +84,19 @@ Total amount of work done, or the runtime, can be given by:
 $$
 \sum_{i=1}^{\text{levels}} \text{nodes} \times \text{merge runtime}
 $$
+
 $$
 = \sum_{i=1}^{\lceil \log_2 n\rceil + 1} \cancel{2^{i-1}} \times O(\lceil \frac{n}{\cancel{2^{i+1}}} \rceil)
 $$
+
 $$
 = \sum_{i=1}^{\lceil \log_2 n \rceil+1} O(n)
 $$
+
 $$
 = O(n) + O(n \log_2 n)
 $$
+
 $$
 = O(n \log_2 n)
 $$
