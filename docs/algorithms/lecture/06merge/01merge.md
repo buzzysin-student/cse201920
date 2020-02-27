@@ -1,5 +1,11 @@
 # Merge Sort <!-- omit in toc -->
 
+[~~Previous Chapter~~][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
+
+[prev]: ./index.md
+[next]: ./index.md
+[index]: ./index.md
+
 - [Some Keywords](#some-keywords)
   - [In-place](#in-place)
   - [Stable](#stable)
