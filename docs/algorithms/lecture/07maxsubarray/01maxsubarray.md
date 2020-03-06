@@ -28,7 +28,7 @@ $$ A = L\circ R $$
 $$\text{ where } L := \{A[k] : 0 \leq k \leq \lfloor n/2 \rfloor \}$$
 $$\text{ and } R := \{ A[k] : \lfloor n/2 \rfloor + 1 \leq k \leq n - 1 \}$$
 
-Three things can happen here. Either $S\sube L$, $S \sube R$ or $S \sube (L \circ R)$. In words, if the sub-array is completely in the left sub-array, completely in the right sub-array, or partially in both sub-arrays (or, if $i$ describes an index in $L$ and $j$ describes an index in $R$).
+Three things can happen here. Either $S\subseteq L$, $S \subseteq R$ or $S \subseteq (L \circ R)$. In words, if the sub-array is completely in the left sub-array, completely in the right sub-array, or partially in both sub-arrays (or, if $i$ describes an index in $L$ and $j$ describes an index in $R$).
 
 ```python
 algorithm max_sub_arr
