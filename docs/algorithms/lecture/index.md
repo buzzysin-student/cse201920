@@ -5,5 +5,5 @@
 - [Lecture 3 - Theta and Omega](./03thetaomega/index.md)
 - [Lecture 4 - Searching and Ram Model](./04ramsearch/index.md)
 - [Lecture 5 - Loop Invariants](./05invariants/index.md)
-- [Lecture 6 - Merge Sort 1](./06merge/index.md)
-- [Lecture 7 - Merge Sort 2](./07merge/index.md)
+- [Lecture 6 - Merge Sort](./06merge/index.md)
+- [Lecture 7 - Maximum Sub-array Problem](./07maxsubarray/index.md)

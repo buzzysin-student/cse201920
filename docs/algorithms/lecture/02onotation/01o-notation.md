@@ -91,7 +91,9 @@ $\text{Step 2: Derivative - Observe that }  \frac{d}{dn}(e^n) \geq \frac{d}{dn}(
 
 $\because e^n \geq 1 \implies n\geq \ln 1(0), \text{ so } n \geq 1 (\geq 0)$
 
-$\text{Step 3: Invoke the racetrack principle - since } e^k \geq k \text{ for } k=1\newline\newline\text{ and } \frac{d}{dn}(e^n) \geq \frac{d}{dn}(n)\text{ for  }n \geq 1 \text{ then } e^n \geq n \text{ for all }n\geq k(=1)$
+$\text{Step 3: Invoke the racetrack principle - since } e^k \geq k \text{ for } k=1$
+
+$\text{ and } \frac{d}{dn}(e^n) \geq \frac{d}{dn}(n)\text{ for  }n \geq 1 \text{ then } e^n \geq n \text{ for all }n\geq k(=1)$
 
 ## Properties of Big-O
 

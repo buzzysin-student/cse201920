@@ -63,6 +63,8 @@ for k <- 0 ... n - 1 do
 
 #### Analysis of the `MERGE` operation
 
+The `MERGE` operation takes $O(n)$ time, as only one loop is iterated through and the length of that loop is $n$.
+
 ### Analysis of Merge Sort
 
 For each level $i$, there will be at most $2^{i-1}$ nodes there, because $i-1$ halves had taken place at that time. The length of the array in each node is given by $\lceil \frac{n}{2^{i+1}} \rceil$ (i.e. to distribute the size of the array equally amongst nodes).
@@ -111,7 +113,7 @@ $$
 
 Merge Sort is stable as it preserves the order of equal elements in the `MERGE` operation.
 
-Merge sort is not in-place as it uses $O(n/2)$ size intermediate sub-arrays, which is not in $O(1)$ or constant.
+Merge sort is not in-place as it uses $O(n/2)$ size intermediate sub-arrays, which is not in $O(1)$ (or constant).
 
 ## Working Python implementation
 

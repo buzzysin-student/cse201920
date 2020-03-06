@@ -30,7 +30,9 @@ For example:
 
 $\text{An algorithm runs with }O(g(n))$
 
-$\newline \therefore \text{ there is some function and constant } f,c  \text{ such that }\newline\newline 0\leq f(n) \leq cg(n) \text{ for all n above a certain value.}$
+$\therefore \text{ there is some function and constant } f,c  \text{ such that }$
+
+$0\leq f(n) \leq cg(n) \text{ for all n above a certain value.}$
 
 What this means is that there a function in a set of functions denoted by $f(n)$ that is less than $g(n)$. This means that an algorithm that runs in $O(n^2)$ could also run in $O(\sqrt{n})$ or $O(\log n)$. It is not entirely clear.
 
@@ -38,7 +40,11 @@ What this means is that there a function in a set of functions denoted by $f(n)$
 
 The definition of $\Theta(f(n))$ is as follows:
 
-$\newline \text{If }f(n) \in \Theta(g(n))\text{ then} \newline \newline \exists c_1, c_2 \> 0: 0 \leq c_1 g(n) \leq f(n) \leq c_2 g(n)\newline\newline\text{for all n greater than a certain value }$
+$\text{If }f(n) \in \Theta(g(n))\text{ then}$
+
+$\exists c_1, c_2 \> 0: 0 \leq c_1 g(n) \leq f(n) \leq c_2 g(n)$
+
+$\text{for all n greater than a certain value }$
 
 In words, there is a function $g$ that asymptotically bounds (or "sandwiches") the function $f$ up to positive constants.
 
@@ -102,7 +108,9 @@ The definition of $\Omega(f(n))$ is as follows:
 
 $\text{If }f\in\Omega(g)$
 
-$\newline \text{Then }\exists c \> 1:0\leq g \leq cf \newline \newline \text{for all n greater than a certain value }$
+$\text{Then }\exists c \> 1:0\leq g \leq cf$
+
+$\text{for all n greater than a certain value }$
 
 ### Properties of Omega
 

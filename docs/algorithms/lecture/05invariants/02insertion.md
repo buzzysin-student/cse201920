@@ -70,5 +70,5 @@ $$
 On average, one would expect that about half of the numbers before index $A[j]$ are both bigger and smaller than $A[j]$. This would require moving $A[j]$ to approximately $A[j/2]$. This means the inner loop would run approximately $j/2$ times.
 
 $$
-\text{Runtime } = \sum_{j=1}^{n-1} \frac{j}{2}\cdot O(1) = O(n^2)
+\text{Average Runtime } = \sum_{j=1}^{n-1} \frac{j}{2}\cdot O(1) = O(n^2)
 $$

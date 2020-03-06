@@ -24,7 +24,7 @@ def merge(x):
 
 
 def msort(x):
-  if len(x) == 1:
+  if len(x) <= 1:
     return x
 
   x[:len(x)//2] = msort(x[:len(x)//2])

@@ -119,5 +119,9 @@ $$O(1)+O(n^2) = O(n^2)$$
 In general, if there is a nested loop:
 
 $$
-\text{other runtime outside loop} + \newline \sum_{\text{inner loop variable}}^{\text{outer loop count}} (\text{inner loop count in terms of inner loop variable})
+\text{other runtime outside loop}\space+
+$$
+
+$$
+\sum_{\text{inner loop variable}}^{\text{outer loop count}} (\text{inner loop count in terms of inner loop variable})
 $$

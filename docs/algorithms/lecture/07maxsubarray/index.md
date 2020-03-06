@@ -1,4 +1,4 @@
-# Merge Sort 1 <!-- omit in toc -->
+# The Maximum Subarray Problem<!-- omit in toc -->
 
 [Previous Section][prev] | [~~Next Section~~][next] | [Section Contents][index]
 

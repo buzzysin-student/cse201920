@@ -55,8 +55,14 @@ This asks the question - does the loop invariant hold before the next iteration?
 
 $$
 m_{i+1}  = \max \{ m_i, A[i]\} (1)
-\newline = \max \{ \max \{ A[j] \leq j \lt i\}, A[i]\}(2)
-\newline = \max \{ A[j] : 0 \leq j \lt i + 1 \} (3)
+$$
+
+$$
+= \max \{ \max \{ A[j] \leq j \lt i\}, A[i]\}(2)
+$$
+
+$$
+= \max \{ A[j] : 0 \leq j \lt i + 1 \} (3)
 $$
 
 In words, the next iteration's value of $m$ is the maximum between the previous iteration's value of m and the current value of $A[i]$ (1). This is the same as taking the maximum of the list from $0$ to $i-1$ and comparing that maximum to $A[i]$ (2). Since this is also the same as finding the maximum up to and including $A[i]$, the loop invariant holds (3).
