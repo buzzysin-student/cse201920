@@ -50,7 +50,7 @@ algorithm minimize_left/right
 
 Require an integer array `A` with length `n`
 
-# TODO: 
+# TODO:
 
 return A[]
 ```
