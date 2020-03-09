@@ -5,3 +5,5 @@
 [prev]: ../06merge/index.md
 [next]: ../index.md
 [index]: ../index.md
+
+- [Maximum Subarray Problem](01maxsubarray.md)
