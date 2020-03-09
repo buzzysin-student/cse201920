@@ -9,6 +9,7 @@
 - [Definition of the problem](#definition-of-the-problem)
   - [Trivial Solution](#trivial-solution)
 - [Divide and Conquer algorithm](#divide-and-conquer-algorithm)
+  - [Code](#code)
 
 ## Definition of the problem
 
@@ -43,14 +44,8 @@ sub_two = max_sub_arr(A[n//2 + 1, n-1])
 sub_thr = max_sub_arr(minimize_left(A) + minimize_right(A))
 
 return heaviest(sub_one, sub_two, sub_thr)
-
-# Helper algos
-
-algorithm minimize_left/right
-
-Require an integer array `A` with length `n`
-
-# TODO:
-
-return A[]
 ```
+
+### Code 
+
+Non-optimised example code [here](./maxsubarr.py)
