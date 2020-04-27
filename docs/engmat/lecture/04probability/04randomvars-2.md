@@ -2,9 +2,9 @@
 
 [Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ./02geometry.md
-[next]: ./04hyperbolic.md
-[index]: ./index.md
+[prev]: ./02geometry
+[next]: ./04hyperbolic
+[index]: ./index
 
 - [Discrete and continuous random variables](#discrete-and-continuous-random-variables)
 - [Combinations of random variables](#combinations-of-random-variables)
@@ -68,4 +68,4 @@ The mode is simply the most frequent event in the set of observations, simply de
 
 ![fn](https://latex.codecogs.com/svg.latex?\text{Mode}=\text{max})
 
-[Next part](./05randomvars.md)
+[Next part](./05randomvars)

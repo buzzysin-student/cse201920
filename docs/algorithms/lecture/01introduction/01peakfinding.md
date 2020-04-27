@@ -2,9 +2,9 @@
 
 [~~Previous Chapter~~][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
 
-[prev]: ./index.md
-[next]: ./index.md
-[index]: ../index.md
+[prev]: ./index
+[next]: ./index
+[index]: ./index
 
 - [Example: Peak-finding](#example-peak-finding)
   - [Pseudocode](#pseudocode)
@@ -83,15 +83,15 @@ return -1;
 
 ### Proof that every array has a peak
 
-$\text{Suppose that } A \text{ is an array of length } n, \{ a_0, a_1, a_2, ..., a_{n-1} \}, \text{ and has no peaks. }$
+Suppose that $A$ is an array of length $n$, $\{ a_0, a_1, a_2, ..., a_{n-1} \}$, and has no peaks.
 
-$\text{Then }a_1\geq a_0 \text{as otherwise } a_1 \text{ would be a peak.}$
+Then $a_1\geq a_0$ as otherwise $a_1$ would be a peak.
 
-$\text{Then }a_2\geq a_1 \text{ as otherwise }a_2 \text{ would be a peak.}$
+Then $a_2\geq a_1$  as otherwise $a_2$  would be a peak.
 
-$\text{This reasoning cascades for all }i\leq n - 1, \text{ i.e. }a_i \geq a_{i-1}.$
+This reasoning cascades for all $i\leq n - 1$,  i.e. $a_i \geq a_{i-1}$.
 
-$\text{However, this implies that } a_{n-1} \text{ is a peak, which is a contradiction.}$
+However, this implies that $a_{n-1}$ is a peak, which is a contradiction.
 
 ## An improvement
 
@@ -129,7 +129,7 @@ else
 
 ## Array accesses
 
-To count the number of calls to the fast-peak-finding algorithm, a recurrence relation would have to be solved. 
+To count the number of calls to the fast-peak-finding algorithm, a recurrence relation would have to be solved.
 
 Let $R(n)$ be the number of times that the algorithm is a recursion on a size of input $n$. Then:
 

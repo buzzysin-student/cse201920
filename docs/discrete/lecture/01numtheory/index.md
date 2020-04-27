@@ -1,14 +1,14 @@
 # Number Theory <!-- omit in toc -->
 
-[~~Previous Section~~][prev] | [Next Section][next] | [Section Contents][index]
+[~~Previous Chapter~~][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ../index.md
-[next]:  ../02logicproof/index.md
-[index]: ../index.md
+[prev]: ../index
+[next]:  ../02logicproof/index
+[index]: ../index
 
-- [Number Sets](./01numbersets.md)
-- [Bases](02bases.md)
-- [Modular Arithmetic](03modular.md)
-- [GCD and LCM](04gcd-lcm.md)
-- [Prime Numbers](05primes.md)
-- [Fundamental Theorem of Arithmetic](06fta.md)
+- [Number Sets](./01numbersets)
+- [Bases](02bases)
+- [Modular Arithmetic](03modular)
+- [GCD and LCM](04gcd-lcm)
+- [Prime Numbers](05primes)
+- [Fundamental Theorem of Arithmetic](06fta)

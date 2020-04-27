@@ -1,7 +1,7 @@
 # Practical Amplifiers <!-- omit in toc -->
 
-[Previous Section][prev] | [Next Section][next] | [Section Contents][index]
+[Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ../02amplifiers/index.md
-[next]: ../04opamps/index.md
-[index]: ../index.md
+[prev]: ../02amplifiers/index
+[next]: ../04opamps/index
+[index]: ../index

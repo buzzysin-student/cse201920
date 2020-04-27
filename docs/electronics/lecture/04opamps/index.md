@@ -1,7 +1,7 @@
 # Operational Amplifiers (Op-Amps) <!-- omit in toc -->
 
-[Previous Section][prev] | [Next Section][next] | [Section Contents][index]
+[Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ../03practicalamps/index.md
-[next]: ../05opamps2/index.md
-[index]: ../index.md
+[prev]: ../03practicalamps/index
+[next]: ../05opamps2/index
+[index]: ../index

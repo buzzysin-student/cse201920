@@ -2,8 +2,8 @@
 
 [Previous Section][prev] | [Next Section][next] | [Section Contents][index]
 
-[prev]: ../05invariants/index.md
-[next]: ../07maxsubarray/index.md
-[index]: ../index.md
+[prev]: ../05invariants/index
+[next]: ../07maxsubarray/index
+[index]: ../index
 
-- [Merge Sort](./01merge.md)
+- [Merge Sort](./01merge)

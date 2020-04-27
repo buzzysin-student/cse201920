@@ -1,4 +1,6 @@
-# Lectures
+# Module - Object-oriented Programming
+
+[Module Contents](../../README.md)
 
 ## Table of contents 
 

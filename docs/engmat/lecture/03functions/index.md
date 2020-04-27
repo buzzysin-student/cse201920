@@ -1,7 +1,7 @@
 # Functions <!-- omit in toc -->
 
-- [Introduction](./01functions.md)
-- [Differentiation](./02differentiation.md)
-- [Taylor Series](03taylorandmore.md)
-- [Integrals](04integrals.md)
-- [Partial Differentiation](./05partialdiff.md)
+- [Introduction](./01functions)
+- [Differentiation](./02differentiation)
+- [Taylor Series](03taylorandmore)
+- [Integrals](04integrals)
+- [Partial Differentiation](./05partialdiff)

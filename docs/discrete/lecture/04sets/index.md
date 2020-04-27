@@ -1,11 +1,11 @@
 # Sets, Functions and Relations <!-- omit in toc -->
 
-[Previous Section][prev] | [Next Section][next] | [Section Contents][index]
+[Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ../03predicates/index.md
-[next]: ../05groups/index.md
-[index]: ../index.md
+[prev]: ../03predicates/index
+[next]: ../05groups/index
+[index]: ../index
 
-- [Sets](./01sets.md)
-- [Functions](02functions.md)
-- [Relations](03relations.md)
+- [Sets](./01sets)
+- [Functions](02functions)
+- [Relations](03relations)

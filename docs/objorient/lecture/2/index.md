@@ -1,11 +1,11 @@
 # Lecture 2 - How to use Java
 
-[Home](../lecture.md)
+[Home](../lecture)
 
 ## Contents
 
-- [Java: why Java?](./java.md)
-- [Features of Java](./usage.md)
+- [Java: why Java?](./java)
+- [Features of Java](./usage)
 
 # Headers
 
@@ -33,8 +33,8 @@ console.log("This is also multiline")
 ![alt-text](<https://source.unsplash.com/featured/?book$
 Image
 
-[Click me](./index.md)
+[Click me](./)
 
 This is  a [link-reference][link-referece]
 
-[link-referece]: ./index.md
+[link-referece]: ./

@@ -2,8 +2,8 @@
 
 [~~Previous Section~~][prev] | [Next Section][next] | [Section Contents][index]
 
-[prev]: ./index.md
-[next]: ../02onotation/index.md
-[index]: ../index.md
+[prev]: ./
+[next]: ../02onotation/index
+[index]: ../index
 
-- [Introduction](./01peakfinding.md)
+- [Introduction](./01peakfinding)

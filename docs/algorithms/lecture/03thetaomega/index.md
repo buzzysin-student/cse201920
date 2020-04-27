@@ -2,9 +2,9 @@
 
 [Previous Section][prev] | [Next Section][next] | [Section Contents][index]
 
-[prev]: ../02onotation/index.md
-[next]: ../04searches/index.md
-[index]: ./index.md
+[prev]: ../02onotation/index
+[next]: ../04searches/index
+[index]: ../index
 
-- [Theta and Omega](./01thetaomega.md)
-- [The Ram Model](./02ram-model.md)
+- [Theta and Omega](./01thetaomega)
+- [The Ram Model](./02ram-model)

@@ -2,9 +2,9 @@
 
 [Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ./index.md
-[next]: ./index.md
-[index]: ./index.md
+[prev]: ./
+[next]: ./
+[index]: ./index
 
 - [Weighted Summer](#weighted-summer)
 - [Difference Amplifier](#difference-amplifier)

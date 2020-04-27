@@ -2,9 +2,9 @@
 
 [Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ./02geometry.md
-[next]: ./04hyperbolic.md
-[index]: ./index.md
+[prev]: ./02geometry
+[next]: ./04hyperbolic
+[index]: ./index
 
 - [Bernoulli Distribution](#bernoulli-distribution)
   - [Definition of Bernoulli](#definition-of-bernoulli)
@@ -37,7 +37,7 @@ Then the proabability of failure is _1 - p_
 
 Let the random variable _X_ be _1_ on success and _0_ on failure.
 
-The [probability function](03randomvars.md#the-probability-function) for this random variable is:
+The [probability function](03randomvars#the-probability-function) for this random variable is:
 
 $\newline P_X(1) = P(X=1) = p\newline P_X(0) = P(X=0) = 1-p$
 

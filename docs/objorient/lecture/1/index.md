@@ -1,7 +1,7 @@
 # Lecture 1 - Introduction to OOP
 
-[Home](../lecture.md)
+[Home](../lecture)
 
 ## Contents
 
-- [Objects](./objects.md)
+- [Objects](./objects)

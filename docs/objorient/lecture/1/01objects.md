@@ -1,6 +1,6 @@
 # What is an object <!-- omit in toc -->
 
-[Home](../lecture.md) | [Index](./index.md)
+[Home](../lecture) | [Index](./)
 
 - [Class-object relationship](#class-object-relationship)
 - [Class constructors](#class-constructors)

@@ -2,9 +2,9 @@
 
 [~~Previous Chapter~~][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ./index.md
-[next]: ./02insertion.md
-[index]: ./index.md
+[prev]: ./index
+[next]: ./02insertion
+[index]: ./index
 
 - [Definition](#definition)
 - [Example with induction](#example-with-induction)

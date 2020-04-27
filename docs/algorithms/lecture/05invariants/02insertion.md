@@ -2,9 +2,9 @@
 
 [Previous Chapter][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
 
-[prev]: ./01invariants.md
-[next]: ./index.md
-[index]: ./index.md
+[prev]: ./01invariants
+[next]: ./index
+[index]: ./index
 
 ## Insertion sort
 

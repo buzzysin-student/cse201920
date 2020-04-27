@@ -1,7 +1,11 @@
-# Section - Engineering Mathematics
+# Module - Engineering Mathematics
 
-- [Complex Numbers](./01complex/index.md)
-- [Vectors and Matrices](./02vectormatrix/index.md)
-- [Functions](./03functions/index.md)
-- [Probability](./04probability/index.md)
-- [Ordinary Differential Equations](./05odes/index.md)
+[Module Contents](../../README.md)
+
+- [Complex Numbers](./01complex/)
+- [Vectors and Matrices](./02vectormatrix/)
+- [Functions](./03functions/)
+- [Probability](./04probability/)
+- [Ordinary Differential Equations](./05odes/)
+
+> &copy; Alan Champneyes, Nikolai Bode, Cameron Hall

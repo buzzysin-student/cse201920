@@ -2,8 +2,8 @@
 
 [Previous Section][prev] | [Next Section][next] | [Section Contents][index]
 
-[prev]: ../03thetaomega/index.md
-[next]: ../05invariants/index.md
-[index]: ./index.md
+[prev]: ../03thetaomega/index
+[next]: ../05invariants/index
+[index]: ./index
 
-- [Searching algorithms](./01searches.md)
+- [Searching algorithms](./01searches)

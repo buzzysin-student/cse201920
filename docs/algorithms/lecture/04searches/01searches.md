@@ -2,9 +2,9 @@
 
 [~~Previous Chapter~~][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
 
-[prev]: ./index.md
-[next]: ./index.md
-[index]: ./index.md
+[prev]: ./index
+[next]: ./index
+[index]: ./index
 
 - [Linear Search](#linear-search)
   - [Linear Example](#linear-example)

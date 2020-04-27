@@ -1,10 +1,10 @@
 # The Maximum Sub-array Problem <!-- omit in toc -->
 
-[Previous Section][prev] | [Next Section][next] | [Section Contents][index]
+[~~Previous Chapter~~][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
 
-[prev]: ../05invariants/index.md
-[next]: ../07maxsubarray/index.md
-[index]: ../index.md
+[prev]: ../05invariants/index
+[next]: ../07maxsubarray/index
+[index]: ../index
 
 - [Definition of the problem](#definition-of-the-problem)
   - [Trivial Solution](#trivial-solution)

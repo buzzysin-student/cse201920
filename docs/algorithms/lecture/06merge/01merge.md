@@ -2,9 +2,9 @@
 
 [~~Previous Chapter~~][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
 
-[prev]: ./index.md
-[next]: ./index.md
-[index]: ./index.md
+[prev]: ./index
+[next]: ./index
+[index]: ./index
 
 - [Some Keywords](#some-keywords)
   - [In-place](#in-place)

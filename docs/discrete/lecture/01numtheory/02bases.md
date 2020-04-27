@@ -2,6 +2,6 @@
 
 [~~Previous Chapter~~][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ./01numbersets.md
-[next]: ./02searches.md
-[index]: ./index.md
+[prev]: ./01numbersets
+[next]: ./02searches
+[index]: ./index

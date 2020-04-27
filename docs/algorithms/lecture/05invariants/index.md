@@ -2,9 +2,9 @@
 
 [Previous Section][prev] | [Next Section][next] | [Section Contents][index]
 
-[prev]: ../04searches/index.md
-[next]: ../06merge/index.md
-[index]: ../index.md
+[prev]: ../04searches/index
+[next]: ../06merge/index
+[index]: ../index
 
-- [Invariants](./01invariants.md)
-- [Insertion Sort](./02insertion.md)
+- [Invariants](./01invariants)
+- [Insertion Sort](./02insertion)

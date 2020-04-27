@@ -7,7 +7,7 @@
 
 ## `new`
 
-This keyword tell java to create an object on the [heap](../3/lifecycle.md#the-heap-and-the-stack)
+This keyword tell java to create an object on the [heap](../3/lifecycle#the-heap-and-the-stack)
 
 ## `static`
 

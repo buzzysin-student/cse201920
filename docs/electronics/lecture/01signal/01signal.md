@@ -2,9 +2,9 @@
 
 [~~Previous Chapter~~][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
 
-[prev]: ./index.md
-[next]: ./index.md
-[index]: ./index.md
+[prev]: ./
+[next]: ./
+[index]: ./index
 
 - [Sources](#sources)
 - [Representation](#representation)
@@ -158,10 +158,11 @@ Current RMS:
 
 $$
 \begin{aligned}
-i_{rms} &= \sqrt{\frac{1}{T}\int_{0}^{T} \left(\frac{V_{pk}}{R} \right)^2 cos^2(\omega t) dt} \\
+i_{rms}
+&= \sqrt{\frac{1}{T}\int_{0}^{T} \left(\frac{V_{pk}}{R} \right)^2 cos^2(\omega t) dt} \\
 &= \sqrt{\frac{V_{pk}^2}{R^2T}\frac{T}{2}} \\
 &= \frac{V_{pk}}{R\sqrt2} \\
-&= \frac{I_{pk}}{\sqrt2}
+&= \frac{I_{pk}}{\sqrt2} &\text{ (Using Ohm's Law) }
 \end{aligned}
 $$
 
@@ -172,13 +173,6 @@ $$
   p_{rms} &= v_{rms}i_{rms} \\
   & =\frac{V_{pk}}{\sqrt2}\frac{V_{pk}}{R\sqrt{2}} \\
   & =\frac{1}{2}\frac{V_{pk}^2}{R} \\
-  & = \frac{1}{2}I_{pk}^2R
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-  2x^2&+3x &= y  \\
-  2y&+x &= 7
+  & = \frac{1}{2}I_{pk}^2R &\text{ (Using Ohm's Law) }
 \end{aligned}
 $$

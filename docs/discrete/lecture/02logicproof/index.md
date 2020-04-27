@@ -1,11 +1,11 @@
 # Logic and Proof <!-- omit in toc -->
 
-[Previous Section][prev] | [Next Section][next] | [Section Contents][index]
+[Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ../01numtheory/index.md
-[next]: ../03predicates/index.md
-[index]: ../index.md
+[prev]: ../01numtheory/index
+[next]: ../03predicates/index
+[index]: ../index
 
-- [Axioms](01axioms.md)
-- [Logic](02logic.md)
-- [Proofs](03proofs.md)
+- [Axioms](01axioms)
+- [Logic](02logic)
+- [Proofs](03proofs)

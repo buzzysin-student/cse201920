@@ -2,9 +2,9 @@
 
 [Previous Chapter][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
 
-[prev]: ./01thetaomega.md
-[next]: ./index.md
-[index]: ./index.md
+[prev]: ./01thetaomega
+[next]: ./index
+[index]: ./index
 
 - [The RAM Model](#the-ram-model)
   - [Description](#description)

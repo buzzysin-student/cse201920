@@ -2,9 +2,9 @@
 
 [~~Previous Chapter~~][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ./index.md
-[next]: ./02bases.md
-[index]: ./index.md
+[prev]: ./
+[next]: ./02bases
+[index]: ./index
 
 ## Definiton
 

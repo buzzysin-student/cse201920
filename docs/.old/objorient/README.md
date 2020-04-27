@@ -15,8 +15,8 @@ This is a collection of [John's](https://github.com/Johno0) & [Taharka's](https:
 
 ## Shared notes
 
-- [Lecture Notes](./lecture/lecture.md)
-- [Tinkering with Code](./tinker/tinker.md)
+- [Lecture Notes](./lecture/lecture)
+- [Tinkering with Code](./tinker/tinker)
 
 ## Shared code
 

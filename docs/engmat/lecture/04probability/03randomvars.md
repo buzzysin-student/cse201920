@@ -2,9 +2,9 @@
 
 [Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ./02geometry.md
-[next]: ./04hyperbolic.md
-[index]: ./index.md
+[prev]: ./02geometry
+[next]: ./04hyperbolic
+[index]: ./index
 
 - [What is a random variable](#what-is-a-random-variable)
   - [Example](#example)
@@ -32,7 +32,7 @@ Given a random variable ![fn4], it can be described as such:
 
 ![fn7]
 
-[Next part](./05randomvars.md)
+[Next part](./05randomvars)
 
 <!-- phi: S->RR -->
 [fn1]: https://latex.codecogs.com/svg.latex?\phi:S\rightarrow\mathbb{R}

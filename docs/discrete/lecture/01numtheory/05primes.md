@@ -2,6 +2,6 @@
 
 [~~Previous Chapter~~][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ./04gcd-lcm.md
-[next]: ./06fta.md
-[index]: ./index.md
+[prev]: ./04gcd-lcm
+[next]: ./06fta
+[index]: ./index

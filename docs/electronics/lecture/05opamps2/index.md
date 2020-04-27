@@ -1,7 +1,7 @@
 # More on Op-Amps <!-- omit in toc -->
 
-[Previous Section][prev] | [~~Next Section~~][next] | [Section Contents][index]
+[Previous Chapter][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
 
-[prev]: ../04opamps/index.md
-[next]: ../index.md
-[index]: ../index.md
+[prev]: ../04opamps/index
+[next]: ../index
+[index]: ../index

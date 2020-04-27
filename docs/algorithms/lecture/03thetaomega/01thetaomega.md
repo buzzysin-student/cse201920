@@ -2,9 +2,9 @@
 
 [~~Previous Chapter~~][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ./index.md
-[next]: ./02ram-model.md
-[index]: ./index.md
+[prev]: ./index
+[next]: ./02ram-model
+[index]: ./index
 
 - [Limitations of Big-O](#limitations-of-big-o)
 - [Theta](#theta)

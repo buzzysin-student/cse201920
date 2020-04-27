@@ -1,7 +1,7 @@
 # Amplifiers <!-- omit in toc -->
 
-[Previous Section][prev] | [Next Section][next] | [Section Contents][index]
+[Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ../01signal/index.md
-[next]: ../03practicalamps/index.md
-[index]: ../index.md
+[prev]: ../01signal/index
+[next]: ../03practicalamps/index
+[index]: ../index

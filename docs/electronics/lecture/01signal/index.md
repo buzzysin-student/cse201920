@@ -1,9 +1,9 @@
 # Signals and their representation <!-- omit in toc -->
 
-[~~Previous Section~~][prev] | [Next Section][next] | [Section Contents][index]
+[~~Previous Chapter~~][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ../index.md
-[next]: ../02amplifiers/index.md
-[index]: ../index.md
+[prev]: ../index
+[next]: ../02amplifiers/index
+[index]: ../index
 
-- [Signals and representations](01signal.md)
+- [Signals and representations](01signal)

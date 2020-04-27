@@ -2,6 +2,6 @@
 
 [~~Previous Chapter~~][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
-[prev]: ./03modular.md
-[next]: ./05primes.md
-[index]: ./index.md
+[prev]: ./03modular
+[next]: ./05primes
+[index]: ./index
