@@ -5,3 +5,5 @@
 [prev]: ./04gcd-lcm
 [next]: ./06fta
 [index]: ./index
+
+## Definition
