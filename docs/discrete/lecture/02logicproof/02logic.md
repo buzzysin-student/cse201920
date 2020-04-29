@@ -25,6 +25,8 @@ $$
 \text{ and is also written as $A \implies B$}
 $$
 
+The top statement is called the **antecendant** and the bottom statement is called the **consequent**.
+
 ### Syllogism
 
 $$

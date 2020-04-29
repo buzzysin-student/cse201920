@@ -14,6 +14,8 @@
   - [Contrapositive proof](#contrapositive-proof)
 - [Logic](#logic)
   - [Statements](#statements)
+  - [Variables](#variables)
+  - [Sentences](#sentences)
   - [Truth Tables](#truth-tables)
 
 ## Definiton of a proof
@@ -70,12 +72,43 @@ Therefore, by the inductive hypothesis, since the property holds for $k=1$ and f
 
 ### By Contradiction
 
-In proof by contradiction, it is assumed that the property
+In proof by contradiction, it is assumed that the property is false. The proof follows as normal, except that the final result is expected to be false, which implies that the property is actually true.
+
+> See [this proof](../01numtheory/01numbersets.md#proof-irrational-numbers).
 
 ### Contrapositive proof
+
+Contrapositive proofs are built much the same way as the prior, with the difference that you assume the opposite of both the antecedent and the consequant, since they are functionally equivalent.
+
+$$
+\text{P(n) = if n is even then n+1 is odd} \\
+\text{P'(n) =if n is {\color{red}not} even then n+1 is {\color{red}not }odd } \\
+\text{Example: let n = 3. 3 is not even. 3+1 = 4 is not odd} \\
+\text{Conclude proof.}
+$$
 
 ## Logic
 
 ### Statements
+
+A declarative statement is a statement that can be evaluated to a true or false value.
+
+Examples:
+
+- I am 20 years old
+- It is raining today
+- This fruit :orange: is an apple
+
+### Variables
+
+A propositional variable is a symbol that represents a statement.
+
+Example
+
+* let $\phi$ =
+
+### Sentences
+
+A sentece is a statement or 
 
 ### Truth Tables
