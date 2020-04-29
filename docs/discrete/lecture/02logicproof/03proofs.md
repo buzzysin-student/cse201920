@@ -22,6 +22,10 @@
     - [Disjunction](#disjunction)
     - [Implication](#implication)
     - [Equivalence](#equivalence)
+  - [Logical equivalences](#logical-equivalences)
+    - [Shorthands](#shorthands)
+    - [Identities](#identities)
+  - [Tautologies and contradictions](#tautologies-and-contradictions)
 
 ## Definiton of a proof
 
@@ -113,8 +117,6 @@ Example
 - let $\phi$ = Today is Wednesday
 - let $\psi$ = It is sunny
 
-$f($:orange:$)=$:orange:$^2-2^\pi$:orange:$+$:apple:$\int\sin$:banana:$d$:orange:
-
 ### Sentences
 
 A sentence is a statement or combination of statements using the connectives of propositional logic - logical operators.
@@ -125,11 +127,11 @@ $$
 \text{Let $\theta$ and $\phi$ be valid propositional statements.} \\
 \text{Then, the following sentences are valid: } \\ \space \\
 \begin{aligned}
-               \theta \\
+               \theta  \\
   (       ¬\   \theta) \\
-  (\theta \wedge\phi) \\
-  (\theta \vee  \phi) \\
-  (\theta \rarr \phi) \\
+  (\theta \wedge\phi)  \\
+  (\theta \vee  \phi)  \\
+  (\theta \rarr \phi)  \\
   (\theta \lrarr\phi)
 \end{aligned}
 $$
@@ -192,8 +194,48 @@ It makes sense that:
 Equivalence means true when both statements have the same truth value.
 
 | $\theta$ | $\phi$ | $\theta \lrarr \phi$ |
-| :------: | :----: | :-----------------: |
-|    0     |   0    |          1          |
-|    0     |   1    |          0          |
-|    1     |   0    |          0          |
-|    1     |   1    |          1          |
+| :------: | :----: | :------------------: |
+|    0     |   0    |          1           |
+|    0     |   1    |          0           |
+|    1     |   0    |          0           |
+|    1     |   1    |          1           |
+
+### Logical equivalences
+
+Here are some important logical equivalences used for propositional logic:
+
+#### Shorthands
+
+- Implication simplified:
+  - $\theta \rarr \phi \equiv ¬\theta \vee \phi$
+- Equivalence as implication simplified:
+  - $\theta \lrarr \phi \equiv (\theta \rarr \phi) \wedge (\phi \rarr \theta))$
+
+#### Identities
+
+- Idempotence
+  - $\theta \wedge \theta \equiv \theta \vee \theta  \equiv \theta$
+- Double Negation
+  - $¬\ ¬\ \theta \equiv \theta$
+- De Morgan's Laws
+  - $¬ (\theta \vee \phi) \equiv ¬\theta \wedge ¬\phi$
+  - $¬ (\theta \wedge \phi) \equiv ¬\theta \vee ¬\phi$
+- Commutativity
+  - $\theta \vee \phi \equiv \phi \vee \theta$
+  - $\theta \wedge \phi \equiv \phi \wedge \theta$
+- Associativity
+  - $(\theta \vee \phi) \vee \psi \equiv \theta \vee (\phi \vee \psi)$
+  - $(\theta \wedge \phi) \wedge \psi \equiv \theta \wedge (\phi \wedge \psi)$
+- Distributivity
+  - $(\theta \wedge \phi) \vee \psi \equiv (\theta \vee \psi) \wedge (\phi \vee \psi)$
+  - $(\theta \vee \phi) \wedge \psi \equiv (\theta \wedge \psi) \vee (\phi \wedge \psi)$
+- Contrapositive
+  - $\theta \rarr \phi \equiv ¬ \theta \rarr ¬\phi$
+
+### Tautologies and contradictions
+
+A tautology is something that is true in all rows of the truth table.
+
+|$ $
+
+A contradiction is something that is false in all rows of the truth table.
