@@ -47,6 +47,8 @@ $$
 = & & 3(0) + 1 &\mod 3 \\
 = & & 1 &\mod 3
 \end{aligned}
+\\ \above .4pt \\
+\therefore 25 \mod 3 \equiv 1 \mod 3
 $$
 
 ## Solving equations
