@@ -29,12 +29,12 @@ $$
 
 ## Proof of no largest prime
 
-Assume that $P$ is the largest prime.
+Assume that there is a largest prime = $p_n$.
 
 $$
 \begin{aligned}
-&\implies P+1 \notin \mathbb P \\
-&\implies P + 1 = p_1p_2p_3..., \forall p_n \in \mathbb{P} &\tag{using FTA}
-\\
+&\text{Consider } P = p_1p_2p_3...p_n+1 \\
+&\implies \frac{P}{p_k} \text{ has remainder }1, \forall k\in\{1,2,...,n\} \\
+&\mnplies \
 \end{aligned}
 $$
