@@ -6,6 +6,9 @@
 [next]: ./
 [index]: ./index
 
+- [The Fundamental Theorem of Arithmetic](#the-fundamental-theorem-of-arithmetic)
+- [Proof of no largest prime](#proof-of-no-largest-prime)
+
 ## The Fundamental Theorem of Arithmetic
 
 ## Proof of no largest prime

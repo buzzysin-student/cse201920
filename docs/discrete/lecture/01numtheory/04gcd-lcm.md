@@ -16,6 +16,8 @@
   - [Common multiple](#common-multiple)
   - [Lowest common multiple](#lowest-common-multiple)
 - [Finding GCD and LCM using primes](#finding-gcd-and-lcm-using-primes)
+  - [GCD with primes](#gcd-with-primes)
+  - [LCM with primes](#lcm-with-primes)
 
 ## Greatest common divisor definition
 
@@ -91,6 +93,38 @@ $$
 >
 > $$ lcm(a,b) = \frac{ab}{gcd(a,b)} $$
 >
-> This seems to agree with what WolframAlpha says, but I wonder if there is a formal proof for this...
+> This seems to agree with [what Wolfram|Alpha says][w-alpha-says], but I wonder what the formal proof is for this...
+
+[w-alpha-says]: https://www.wolframalpha.com/input/?i=ab%2F%28gcd%28a%2Cb%29%29
 
 ## Finding GCD and LCM using primes
+
+### GCD with primes
+
+The GCD is about **minimum** amount of factors that two numbers share.
+
+By the [Fundamental Theorem of Arithmetic][fta], any number can be expressed as a product of primes:
+
+$$
+n = p_0^{N_0},p_1^{N_1},p_2^{N_2},...,p_k^{N_k},...,
+\\
+\forall n,N \in \natnums,\forall p_k\in \mathbb P \tag{$\mathbb P$ = primes}
+$$
+
+Therefore GCD of two numbers minimises the exponent on each prime $e_n$:
+
+$$
+\begin{aligned}
+a &= p_0^{A_0}p_1^{A_1}...p_n^{A_n}...\\
+b &= p_0^{B_0}p_1^{B_1}...p_n^{B_n}..\\
+\space \\
+gcd(a,b) &= p_0^{E_0}p_1^{E_1}...p_n^{E_n}... \\
+\text{where }E_n&=\min(A_n, B_n)
+\end{aligned}
+$$
+
+[fta]: ./06fta
+
+### LCM with primes
+
+This is the same principle as above except that the exponent on each prime is max
