@@ -3,7 +3,7 @@
 [Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
 [prev]: ./01axioms
-[next]: ./03logic
+[next]: ./03proofs
 [index]: ./index
 
 - [Definiton of Inference rules](#definiton-of-inference-rules)
@@ -29,8 +29,4 @@ $$
 
 $$
 {\text{All X is Y, Z is an X} \above .5pt \text{Z is a Y}}
-\\ \space \\
-\text{ reads as it is written } \\
-\\ \space \\
-\text{if }
 $$
