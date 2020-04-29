@@ -1,6 +1,6 @@
 module Code05Primes where
 
-import Code04GcdLcm ( gcd2 )
+import Code04GcdLcm
 
 coprime :: Integer -> Integer -> Bool
 coprime n m = gcd2 n m == 1
@@ -18,3 +18,6 @@ prime n = elem n $ primes n
 
 composite :: Integer -> Bool
 composite = not . prime
+
+infPrimes :: [Integer]
+infPrimes = primes $ head $ reverse infPrimes 

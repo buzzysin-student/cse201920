@@ -32,9 +32,17 @@ $$
 Assume that there is a largest prime = $p_n$.
 
 $$
-\begin{aligned}
-&\text{Consider } P = p_1p_2p_3...p_n+1 \\
-&\implies \frac{P}{p_k} \text{ has remainder }1, \forall k\in\{1,2,...,n\} \\
-&\mnplies \
-\end{aligned}
+% Definitions
+\def\aligned#1{\begin{aligned}#1\end{aligned}}
+% End Definitions
+
+\aligned{
+  &\text{Consider } P = p_1p_2p_3...p_n+1 \\
+  &\implies \frac{P}{p_k} \text{ has remainder }1, \forall k\in\{1,2,...,n\} \\
+  &\implies P \text{ only has divisors } 1, P \\
+  &\implies P \in \mathbb P \\
+  &\text{Consider that } P \gt p_n \text{ and } p \text { is prime}
+}
 $$
+
+However, this contradicts the statement the $p_n$ is the largest prime, so the assumption that P is the largest prime is false. Therefore there is no largest prime.
