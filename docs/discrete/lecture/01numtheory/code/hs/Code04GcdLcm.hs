@@ -23,7 +23,7 @@ lcm2 n m = div (n * m) (gcd2 n m)
 cds :: Integer -> Integer -> [Integer]
 cds n m = [ f | f <- [1..min n m], n ? f && m ? f ]
 
--- gcd3 :: Integer -> Integer -> Integer
+gcd3 :: Integer -> Integer -> Integer
 gcd3 n m = head [ c 
   | c <- cds n m
   , let k = cds n m

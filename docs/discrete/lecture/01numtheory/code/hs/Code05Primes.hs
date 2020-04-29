@@ -1,6 +1,6 @@
 module Code05Primes where
 
-import Code04GcdLcm ( coprime )
+import Code04GcdLcm ( gcd2 )
 
 coprime :: Integer -> Integer -> Bool
 coprime n m = gcd2 n m == 1
