@@ -1,10 +1,19 @@
 # Number bases <!-- omit in toc -->
 
-[~~Previous Chapter~~][prev] | [Next Chapter][next] | [Chapter Contents][index]
+[Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
 [prev]: ./01numbersets
 [next]: ./02searches
 [index]: ./index
+
+- [Binary](#binary)
+  - [Binary Conversion](#binary-conversion)
+  - [Two's comlpement](#twos-comlpement)
+- [Octal](#octal)
+  - [Octal Conversion](#octal-conversion)
+- [Hexadecimal](#hexadecimal)
+  - [Hexadecimal conversion](#hexadecimal-conversion)
+- [Other conversions](#other-conversions)
 
 ## Binary
 

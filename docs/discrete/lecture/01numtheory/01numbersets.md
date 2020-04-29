@@ -6,6 +6,14 @@
 [next]: ./02bases
 [index]: ./index
 
+- [Natural Numbers](#natural-numbers)
+- [Integers](#integers)
+- [Rational numbers](#rational-numbers)
+- [Irrational Numbers](#irrational-numbers)
+  - [Proof: irrational numbers](#proof-irrational-numbers)
+- [Real Numbers](#real-numbers)
+- [Complex Numbers](#complex-numbers)
+
 ## Natural Numbers
 
 The set of natural numbers is the set of positive whole numbers, and zero:
@@ -32,7 +40,7 @@ The set of irrational numnbers contains all numbers that cannot be written as th
 
 $\overline{\mathbb{Q}}$
 
-### Proof: $\sqrt2$ is irrational
+### Proof: irrational numbers
 
 > Theorem: $\sqrt 2$ is irrational - there are no integers $a$ and $b$ such that $\frac{a}{b} = \sqrt 2$
 
@@ -61,11 +69,11 @@ $$
 
 However, this results in a contradiction as $a$ and $b$ have a common factor, $k = 2$.
 
-Therefore $\sqrt 2$ is irrational.
+Therefore the assumption that $\sqrt 2$ is rational must be false. Ultimately, $\sqrt 2$ is irrational.
 
 ## Real Numbers
 
-The set of real numbers is the set of numbers that contains the union of $\mathbb{N, Z, Q}$. That means everything included above this paragraph.
+The set of real numbers is the set of numbers that contains the union of $\mathbb{N, Z, Q}$ and $\mathbb{\overline Q}$. That means everything included above this paragraph.
 
 ## Complex Numbers
 

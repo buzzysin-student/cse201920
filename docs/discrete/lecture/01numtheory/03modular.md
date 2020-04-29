@@ -1,10 +1,20 @@
 # Modular Arithmetic <!-- omit in toc -->
 
-[~~Previous Chapter~~][prev] | [Next Chapter][next] | [Chapter Contents][index]
+[Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
 [prev]: ./02bases
 [next]: ./04gcd-lcm
 [index]: ./index
+
+- [Summary](#summary)
+- [Addition](#addition)
+- [Products](#products)
+- [Properties of modular numbers](#properties-of-modular-numbers)
+- [Solving equations](#solving-equations)
+  - [Linear equations](#linear-equations)
+  - [Simultaneous equations](#simultaneous-equations)
+
+## Summary
 
 Modular arithmetic is defined in such a way that when the result of a computation exceeds the value that is being modulated by, the result cycles back to 0 and begins counting up again. Here are some examples of computations under modular arithmetic.
 
@@ -90,23 +100,24 @@ $$
 \begin{aligned}
  x + 2y &= 4 \mod 5 \\
 3x + 4y &= 2 \mod 7 \\
-\end{aligned}
 \\
 \text{Let }x = 0:
 \\
-2y = 4 \mod 5 \\
- y = 2 \mod 5 \\
+2y &= 4 \mod 5 \\
+ y &= 2 \mod 5 \\
 \space \\
-4y = 2 \mod 7 \\
-4y = 16 \mod 7 \\
- y = 4 \mod 7 \\
+4y &= 2 \mod 7 \\
+4y &= 16 \mod 7 \\
+ y &= 4 \mod 7 \\
 \space \\
-y = 5k_1 + 2 \\
-5 k_1 + 2 = 4 \mod 7 \\
-5k_1 = 2 \mod 7 \\
-5k_1 = 30 \mod 7 \\
-k_1 = 6 \mod 7 \\
-y = 32 \\
+y &= 5k_1 + 2 \\
+5 k_1 + 2 &= 4 \mod 7 \\
+5k_1 &= 2 \mod 7 \\
+5k_1 &= 30 \mod 7 \\
+k_1 &= 6 \mod 7 \\
+y &= 32 \\
+\end{aligned}
+\\
+\space \\
+x = 0, y = 32 \mod 35 \text{ is just one solution }
 $$
-
-> Note - this is just one out of 35 solutions (from $x = 0 \rarr x = 34$)

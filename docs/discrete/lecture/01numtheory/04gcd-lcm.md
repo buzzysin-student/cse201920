@@ -1,6 +1,6 @@
 # GCD and LCM <!-- omit in toc -->
 
-[~~Previous Chapter~~][prev] | [Next Chapter][next] | [Chapter Contents][index]
+[Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
 [prev]: ./03modular
 [next]: ./05primes
@@ -127,4 +127,11 @@ $$
 
 ### LCM with primes
 
-This is the same principle as above except that the exponent on each prime is max
+This is the same principle as above except that the exponent on each prime is maximised instead.
+
+$$
+\begin{aligned}
+lcm(a,b) &= p_0^{E_0}p_1^{E_1}...p_n^{E_n}... \\
+\text{where }E_n&=\max(A_n, B_n)
+\end{aligned}
+$$
