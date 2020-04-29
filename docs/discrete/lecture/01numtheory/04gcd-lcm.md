@@ -11,8 +11,8 @@
 Consider the numbers $a$ and $b$. If there is a number such that $c$ divides a and b, and $c$ is divisible by all factors of $a$ and $b$, then $c$ is the Greatest Commmon Factor of $a$ and $b$.
 
 $$
-\text {Let factors := \(\mathbb F \) = \{ $f$: \(f|a\) or \(f|b\) \}, then }\\
-gcd(a,b) = c \in \mathbb F \text{ where \(c|k, \forall k \in \mathbb F \) }
+\text {Let common factors := \(\mathbb F_c \) = \{ $f$: \(f|a\) and \(f|b\) \}, then }\\
+gcd(a,b) = c \in \mathbb F_c \text{ where \(c|k, \forall k \in \mathbb F_c \) }
 $$
 
 ### Common divisor

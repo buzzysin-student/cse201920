@@ -1,21 +1,25 @@
 remainder :: Integer -> Integer -> Integer
 remainder n m = n - m * (div n m)
 
-mcd :: Integer -> Integer -> Integer 
-mcd n m 
-  | n < m     = flip mcd n m
-  | otherwise = _mcd n m (remainder n m)
-  where
-    _mcd :: Integer -> Integer -> Integer -> Integer
-    _mcd p q r 
-      | remainder p q == 0 = q 
-      | otherwise          = _mcd q r (remainder q r)
+infixr 5 ?
+(?) :: Integer -> Integer -> Bool
+n ? m = remainder n m == 0
 
-scm :: Integer -> Integer -> Integer
-scm n m = div (n * m) (mcd n m)
+gcd2 :: Integer -> Integer -> Integer 
+gcd2 n m 
+  | n < m     = flip gcd2 n m
+  | otherwise = _gcd2 n m (remainder n m)
+  where
+    _gcd2 :: Integer -> Integer -> Integer -> Integer
+    _gcd2 p q r 
+      | p ? q              = q 
+      | otherwise          = _gcd2 q r (remainder q r)
+
+lcm2 :: Integer -> Integer -> Integer
+lcm2 n m = div (n * m) (gcd2 n m)
 
 coprime :: Integer -> Integer -> Bool
-coprime n m = mcd n m == 1
+coprime n m = gcd2 n m == 1
 
 primes :: Integer -> [Integer]
 primes n = _primes n 2 []
@@ -30,3 +34,12 @@ prime n = elem n $ primes n
 
 composite :: Integer -> Bool
 composite = not . prime
+
+cds :: Integer -> Integer -> [Integer]
+cds n m = [ f | f <- [1..min n m], n ? f && m ? f ]
+
+-- gcd3 :: Integer -> Integer -> Integer
+gcd3 n m = [ c 
+  | c <- cds n m
+  , let k = cds n m
+  , and [c ? k' | k' <- k ] ]
