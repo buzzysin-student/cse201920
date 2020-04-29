@@ -26,6 +26,8 @@
     - [Shorthands](#shorthands)
     - [Identities](#identities)
   - [Tautologies and contradictions](#tautologies-and-contradictions)
+    - [Law of the Excluded Middle](#law-of-the-excluded-middle)
+    - [Law of non-contradiction](#law-of-non-contradiction)
 
 ## Definiton of a proof
 
@@ -91,7 +93,7 @@ Contrapositive proofs are built much the same way as the prior, with the differe
 
 $$
 \text{P(n) = if n is even then n+1 is odd} \\
-\text{P'(n) =if n is {\color{red}not} even then n+1 is {\color{red}not }odd } \\
+\text{P$'$(n) =if n is {\color{red}not} even then n+1 is {\color{red}not }odd } \\
 \text{Example: let n = 3. 3 is not even. 3+1 = 4 is not odd} \\
 \text{Conclude proof.}
 $$
@@ -236,6 +238,30 @@ Here are some important logical equivalences used for propositional logic:
 
 A tautology is something that is true in all rows of the truth table.
 
-|$ $
+#### Law of the Excluded Middle
+
+I think of this as:
+
+> _"Either something is happening, or it is not happening."_
+>
+> &mdash; Taharka Okai, 2020 &copy;
+
+| $\theta$ | $¬\theta$ | $\theta \vee ¬\theta$ |
+| :------: | :-------: | :-------------------: |
+|    0     |     1     |           1           |
+|    1     |     0     |           1           |
 
 A contradiction is something that is false in all rows of the truth table.
+
+#### Law of non-contradiction
+
+I think of this as:
+
+> _"Something cannot be both true and false at the same time."_
+>
+> &mdash; Taharka Okai, 2020 &copy;
+
+| $\theta$ | $¬\theta$ | $\theta \wedge ¬\theta$ |
+| :------: | :-------: | :---------------------: |
+|    0     |     1     |            0            |
+|    1     |     0     |            0            |
