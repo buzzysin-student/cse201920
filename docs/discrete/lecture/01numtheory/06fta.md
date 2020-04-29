@@ -3,7 +3,7 @@
 [Previous Chapter][prev] | [~~Next Chapter~~][next] | [Chapter Contents][index]
 
 [prev]: ./05primes
-[next]: ./
+[next]: ./index
 [index]: ./index
 
 - [The Fundamental Theorem of Arithmetic](#the-fundamental-theorem-of-arithmetic)

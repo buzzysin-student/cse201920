@@ -38,7 +38,9 @@ $\mathbb{Q}=\left\{..., -\frac{2}{3},..., -\frac{1}{8}, ...,  0, ..., \frac{1}{4
 
 The set of irrational numnbers contains all numbers that cannot be written as the quotient of two integers. A common example to prove this is using $\sqrt 2$.
 
-$\overline{\mathbb{Q}}$
+$$
+{\rm Irrational} = \overline{\mathbb{Q}} = \{r: r\neq \frac{a}{b}, \forall a,b \in \Z \}
+$$
 
 ### Proof: irrational numbers
 

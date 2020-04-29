@@ -3,7 +3,7 @@
 [Previous Chapter][prev] | [Next Chapter][next] | [Chapter Contents][index]
 
 [prev]: ./01numbersets
-[next]: ./02searches
+[next]: ./03modular
 [index]: ./index
 
 - [Binary](#binary)
