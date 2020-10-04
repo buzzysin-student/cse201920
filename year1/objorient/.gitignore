@@ -1,0 +1,15 @@
+# Ignore Config files
+**/.vscode/**
+**/.idea/**
+**/*.code-workspace
+**/objorient/**/target/**
+
+# Keep
+!Makefile
+
+# Ignore compiled files
+*.hi
+*.o
+*.class
+**/bin/**
+*.iml

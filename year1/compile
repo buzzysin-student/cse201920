@@ -1,0 +1,368 @@
+#!/usr/bin/env bash
+
+USAGE=$(
+  cat <<END
+
+COMPILE Taharka Okai - (c) 2020 
+
+=========
+= Usage =
+=========
+
+---------
+C Options
+---------
+-c <path> *
+  Compile the (C) source script located at <path> (*required)
+  using 'clang'
+
+  Example: 
+  ./compile -c ./c/program.c # Outputs a file './c/program'
+
+-m
+  Tells this program to use the (M)akefile located in the same
+  directory as <path> instead of 'clang'
+
+  Example:
+  ./compile -mc ./c/program.c # Or ./compile -m -c ./c/program.c
+                              # Uses Makefile commands instead
+                              # of 'clang'
+  
+  Note: If used, it must be used with -c.
+  Note: If used, the Makefile command must have the same name
+        as the source file.
+
+------------
+Java Options
+------------
+-j <path> *
+  Compile the (J)ava source script located at <path> (*required)
+  using javac
+
+  $ ./compile -j ./oop/program.java # Outputs a .class file
+
+---------------
+Haskell Options
+---------------
+-h <path> *
+  Compile the (H)askell source script located at <path> (*required)
+  using 'ghc'
+
+  Example: 
+  $ ./compile -h ./haskell/program.hs # Outputs a file './haskell/program'
+                                      # and others.
+
+-g
+  (G)HCI intepreter is loaded instead of compiling the source file.
+
+  Example: 
+  $ ./complie -gh ./haskell/program.hs
+
+  Note: If used, it must be used with -h.
+
+--------------
+Global Options
+--------------
+-i <"--some options -in here">
+  (I)nsert extra options to the compiler
+
+  Example: 
+  $ ./compile -gh ./haskell/program.hs -i "-H32m"
+
+-r
+  (R)un the program that you compiled
+
+  Note: This will only be useful when compiling single files.
+
+  Example: 
+  $ ./compile -rc ./c/program.c
+  ...
+  Hello World!
+
+-a <"--some options -a in here">
+  (A)rguments to pass to the program, if it takes arguments
+
+  Example: 
+  $ ./compile -gh ./haskell/program.hs -ra "--numbers 1 2 3 --letters a b c"
+
+  Note: If used, it must be used with -r
+
+-------------
+Other Options
+-------------
+
+-I 
+  (I)nstalls this program into the system environment, allowing global calls
+
+  Note: may not work as intended on non-Linux distributions
+
+Any queries? Post an issue at:
+https://github.com/buzzysin/cse201920/issues
+
+Or hit me up with an email:
+zp19374@bristol.ac.uk
+
+END
+)
+
+# File parameters
+INPUT_FILE=""
+INPUT_DIR=""
+OUTPUT_FILE=""
+
+# Compiler parameters
+COMPILER=""
+COMPILER_OPTS=""
+PROGRAM_OPTS=""
+MAKEFILE=""
+OLD_DIR=$(pwd)
+
+# Error parameters
+ERRS=0
+
+function rlpath() { echo $(
+  cd $(dirname $1)
+  pwd
+)/$(basename $1); }
+
+run_ghci_compiler() {
+  OUTPUT_FILE="${INPUT_FILE%.*}"
+  if [ $FLAG_G ]; then
+    GHCI_COMMAND="ghci $COMPILER_OPTS $INPUT_FILE"
+  else
+    GHCI_COMMAND="ghc "$COMPILER_OPTS" -o "$OUTPUT_FILE" "$INPUT_FILE""
+  fi
+  echo CMD: "$GHCI_COMMAND"
+  $GHCI_COMMAND
+}
+
+run_clng_compiler() {
+  OUTPUT_FILE="${INPUT_FILE%.*}"
+  CLNG_COMMAND="clang $COMPILER_OPTS $INPUT_FILE -o \
+    $OUTPUT_FILE -fsanitize=undefined -fsanitize=address"
+  echo CMD: "$CLNG_COMMAND"
+  $CLNG_COMMAND
+}
+
+run_make_compiler() {
+  cd $INPUT_DIR
+  OUTPUT_FILE="${INPUT_FILE%.*}"
+  MAKE="${OUTPUT_FILE#"$INPUT_DIR/"}"
+  MAKE_COMMAND="make $MAKE"
+  echo "CMD: $MAKE_COMMAND"
+  $MAKE_COMMAND
+}
+
+run_javac_compiler() {
+  OUTPUT_FILE="${INPUT_FILE%.*}"
+  TARGET="${OUTPUT_FILE#"$INPUT_DIR/"}"
+
+  BIN_DIR=$(rlpath $INPUT_DIR)
+
+  if [ -f $BIN_DIR ]; then
+    BIN_DIR="$PWD"
+  fi
+
+  echo $BIN_DIR
+
+  while [[ $(ls -1 $BIN_DIR | grep -s .java && echo 1 || echo) ]]; do
+    BIN_DIR="${BIN_DIR%/*}"
+  done
+
+  JAVAC_CMD="javac $(echo $(find $BIN_DIR -name \*.java)) -d $BIN_DIR/bin $COMPILER_OPTS"
+  echo CMD: $JAVAC_CMD
+  $JAVAC_CMD
+}
+
+run_execute_file() {
+  # Java files are exceptional to
+  # normal compilation
+  if [ "$FLAG_J" ]; then
+    run_execute_java
+    return
+  fi
+
+  # Regular running
+  echo CMD: "./$OUTPUT_FILE $PROGRAM_OPTS"
+  "./$OUTPUT_FILE" $PROGRAM_OPTS
+}
+
+run_execute_java() {
+  RUNCLASS=$TARGET
+
+  if [ ! -d "$BIN_DIR/bin" ]; then
+    echo "Something has gone wrong - I can't find the $BIN_DIR/bin directory."
+    return
+  fi
+
+  cd $BIN_DIR/bin
+
+  if [ "$FLAG_JJ" ]; then
+    RUNCLASS=$FLAG_JJ
+  fi
+
+  if [[ -f "$TARGET.class" ]]; then
+    TARGET=""
+  fi
+
+  JAVA_CMD="java $FLAG_K $TARGET$([[ $TARGET ]] && echo . || echo "")$RUNCLASS $PROGRAM_OPTS"
+  echo CMD: $JAVA_CMD
+
+  $JAVA_CMD
+
+  cd $OLD_DIR
+}
+
+usage() {
+  echo "$USAGE" | less
+}
+
+H_OPTS="gh:"
+C_OPTS="mc:"
+J_OPTS="j:J:k:"
+G_OPTS="i:a:r"
+O_OPTS="I"
+
+while getopts ":$H_OPTS$C_OPTS$J_OPTS$G_OPTS$O_OPTS" opts; do
+  case "${opts}" in
+
+  # ? Haskell Options
+  h)
+    # Compile the file $OPTARG
+    FLAG_H=1
+    INPUT_FILE="$OPTARG"
+    COMPILER=run_ghci_compiler
+    ;;
+  g)
+    # Run the file in the interpreter
+    FLAG_G=1
+    ;;
+  # ? C Options
+  c)
+    # Compile the file $OPTARG
+    FLAG_C=1
+    INPUT_FILE="$OPTARG"
+    INPUT_DIR="${INPUT_FILE%/*}"
+    INPUT_DIR_CONTENTS=$(dir $INPUT_DIR)
+
+    for file in $INPUT_DIR_CONTENTS; do
+      if [[ " $file " =~ .*\ Makefile\ .* ]]; then
+        MAKEFILE=1
+        break
+      fi
+    done
+
+    if [[ "$MAKEFILE" && $FLAG_M ]]; then
+      COMPILER=run_make_compiler
+    else
+      COMPILER_OPTS="-std=c11 -Wall -pedantic -g"
+      COMPILER=run_clng_compiler
+    fi
+    ;;
+  m)
+    # Compile using the Makefile instead
+    FLAG_M=1
+    ;;
+  # ? Java Options
+  j)
+    # Compile the file $OPTARG
+    FLAG_J=1
+    INPUT_FILE="$OPTARG"
+    INPUT_DIR="${INPUT_FILE%/*}"
+    # [ -f $INPUT_DIR ] && INPUT_DIR="."
+    COMPILER=run_javac_compiler
+    FLAG_K="$FLAG_K -ea"
+    ;;
+  J)
+    # Specify class name to run
+    FLAG_JJ="$OPTARG"
+    ;;
+  k)
+    # Pass arguments to program
+    FLAG_K="$FLAG_K $OPTARG"
+    ;;
+  # ? Global Options
+  i)
+    # Insert compiler options
+    FLAG_I=1
+    COMPILER_OPTS="$COMPILER_OPTS $OPTARG"
+    ;;
+  r)
+    # Run the compiled program
+    FLAG_R=1
+    ;;
+  a)
+    # Append arguments to program
+    FLAG_A=1
+    PROGRAM_OPTS="$OPTARG"
+    ;;
+  # ? Other Options
+  I)
+    # Install compile to local environment
+    FLAG_II=1
+    ;;
+  \?)
+    echo "Something is weird"
+    ;;
+  *)
+    echo "Something is even weirder."
+    ;;
+
+  esac
+done
+
+if [ ! $1 ]; then
+  usage
+  exit 1
+fi
+
+if [ "$FLAG_II" ]; then
+  echo "Installing compiler on to system path :D"
+  echo "Note - this will likely only work on Linux Distributions"
+
+  if [ ! -f "./compile" ]; then
+    echo "compile is already installed."
+    exit 1
+  fi
+
+  cp "./compile" ~/.local/bin/
+
+  echo "Done."
+  exit 0
+fi
+
+if [ ! "$COMPILER" ]; then
+  echo "There seems to be an error - did specify the -h/c/j options?"
+  ERRS=$((ERRS + 1))
+fi
+
+if [ ! "$INPUT_FILE" ]; then
+  echo "An input file is needed to continue"
+  ERRS=$((ERRS + 1))
+fi
+
+if [ ! -f "$INPUT_FILE" ]; then
+  echo "File not found: $INPUT_FILE"
+  ERRS=$((ERRS + 1))
+fi
+
+if [[ ERRS -gt 0 ]]; then
+  echo "WRN: $ERRS errors occured."
+  exit 1
+fi
+
+if [[ -f $OUTPUT_FILE ]]; then
+  rm $OUTPUT_FILE
+fi
+
+"$COMPILER"
+
+if [ "$FLAG_M" ]; then
+  cd $OLD_DIR
+fi
+
+if [ "$FLAG_R" ]; then
+  run_execute_file
+fi
+
+exit 0
