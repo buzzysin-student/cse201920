@@ -1,35 +1,38 @@
-# Computer Science and Electronics 2019/2020
+# Computer Science and Electronics 2019/2023
 
 ## Module contents
 
-### Computer Science Modules
+### Year 1 Modules
 
-- [Introduction to Computer Architecture](./comparch/lecture/index)
-- [Algorithms 1](./algorithms/lecture/index)
-- [Object-Oriented Programming](./objorient/lecture/index)
+#### Year 1 Computer Science Modules
+
+- [Introduction to Computer Architecture](/year1/comparch/lecture/index)
+- [Algorithms 1](/year1/algorithms/lecture/index)
+- [Object-Oriented Programming](/year1/objorient/lecture/index)
 - ~~Imperative Programming~~
 - ~~Functional Programming~~
 
-### Electronics Modules
+### Year 1 Electronics Modules
 
-- [Linear Circuits](linear/lecture/index)
-- [Electronics 1](electronics/lecture/index)
+- [Linear Circuits](/year1/linear/lecture/index)
+- [Electronics 1](/year1/electronics/lecture/index)
 
-### Mathematics Modules
+### Year 1 Mathematics Modules
 
-- [Engineering Mathematics](./engmat/lecture/index)
-- [Discrete Mathematics](./discrete/lecture/index)
+- [Engineering Mathematics](/year1/engmat/lecture/index)
+- [Discrete Mathematics](/year1/discrete/lecture/index)
 
-All of these are _works in progress_ - please report any issues [here](https://github.com/buzzysin/cse201920/issues) (you will need a GitHub account to submit an issue).
+<hr/>
 
-$$\frac{1+\sqrt{5}}{2}$$
+### Year 2 Modules
 
-Other links:
+### Year 2 Computer Science Modules
 
-[LinkedIn\*](https://www.linkedin.com/in/taharka-okai) |
-[GitHub](https://github.com/buzzysin) |
-[taharka.tk](https://taharka.tk)
+- [Algorithms 2](/year2/algorithms2/lecture/index)
+- [Computer Systems A](/year2/compsysA/lecture/index)
 
-> \* Problem with LinkedIn - it's better if you're signed in, or LinkedIn will prompt you to make an account/sign in. Sorry about that :smile:
+### Year 2 Electronics Modules
 
-> &copy; Taharka Okai - 2020
+- [Digital Systems](/year2/digsys/lecture/index)
+- [Signals and Systems](/year2/sigsys/lecture/index)
+- [Electronics 2](/year2/electronics2/lecture/index)
