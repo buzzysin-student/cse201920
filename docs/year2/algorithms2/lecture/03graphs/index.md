@@ -3,8 +3,10 @@
 [~~Previous Section~~][prev] | [Next Section][next] | [Section Contents][index]
 
 [prev]: ./
-[next]: ../02onotation/index
-[index]: ../index
+[next]: ./
+[index]: ./
 
-- [Induction](./01induction.md)
-- [O-Notation](./02onotation.md)
+- [Directed Euler Walks](./01induction.md)
+- [Hamilton Cycles](./02onotation.md)
+- [Shaking Hands]()
+- [Trees]()

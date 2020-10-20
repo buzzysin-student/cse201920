@@ -41,7 +41,7 @@ $$
 \begin{aligned}
 &S(k+1): &\sum_{i=0}^{k+1}x^i&=\sum_{i=0}^{k}x^i + x^{k+1} \\
 & & & =\frac{x^{k+1}-1}{x-1}+x^{k+1} \\
-& & & =\frac{x^{k+1}(1-x+1)-1}{x-1} \\
+& & & =\frac{x^{k+1}(1+x-1)-1}{x-1} \\
 & & & =\frac{x^{k+2}-1}{x-1}
 \end{aligned}
 $$

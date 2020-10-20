@@ -3,8 +3,10 @@
 [~~Previous Section~~][prev] | [Next Section][next] | [Section Contents][index]
 
 [prev]: ./
-[next]: ../02onotation/index
-[index]: ../index
+[next]: ./
+[index]: ./index
 
-- [Induction](./01induction.md)
-- [O-Notation](./02onotation.md)
+- [Greedy algorithms and Interval Scheduling](./01induction.md)
+- [Correctness proofs for Interval Scheduling](./02onotation.md)
+- [The Bridges of Konisburg]()
+- [Euler walks]()
