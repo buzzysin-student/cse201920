@@ -1,1 +1,18 @@
-
+[submodule "csa-lab-1"]
+	path = year2/compsysA/labs/csa-lab-1
+	url = git@github.com:buzzysin/csa-lab-1
+[submodule "csa-lab-2"]
+	path = year2/compsysA/labs/csa-lab-2
+	url = git@github.com:buzzysin/csa-lab-2
+[submodule "csa-lab-3"]
+	path = year2/compsysA/labs/csa-lab-3
+	url = git@github.com:buzzysin/csa-lab-3
+[submodule "csa-lab-4"]
+	path = year2/compsysA/labs/csa-lab-4
+	url = git@github.com:buzzysin/csa-lab-4
+[submodule "csa-lab-6"]
+	path = year2/compsysA/labs/csa-lab-6
+	url = git@github.com:buzzysin/csa-lab-6
+[submodule "objorient"]
+	path = year1/objorient
+	url = git@github.com:Johno0/UoB_Javaness_xoxo
