@@ -6,4 +6,4 @@
 [next]: ../09heapsort
 [index]: ../index
 
-- [What is a heap?](./01heap.md)
+- [What is a heap?](./01heap)

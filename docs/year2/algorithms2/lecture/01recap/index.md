@@ -3,8 +3,8 @@
 [~~Previous Section~~][prev] | [Next Section][next] | [Section Contents][index]
 
 [prev]: ./
-[next]: ../02onotation
+[next]: ../02intervalgraph/index
 [index]: ../index
 
-- [Induction](./01induction.md)
-- [O-Notation](./02onotation.md)
+- [Induction](./01induction)
+- [O-Notation](./02onotation)

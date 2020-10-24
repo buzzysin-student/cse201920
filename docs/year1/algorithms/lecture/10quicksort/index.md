@@ -6,4 +6,4 @@
 [next]: ../12countingradix
 [index]: ../index
 
-- [Trees](./01trees.md)
+- [Trees](./01trees)

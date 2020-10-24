@@ -6,5 +6,5 @@
 [next]: ../02onotation/index
 [index]: ../index
 
-- [Induction](./01induction.md)
-- [O-Notation](./02onotation.md)
+- [Induction](./01induction)
+- [O-Notation](./02onotation)

@@ -6,4 +6,4 @@
 [next]: ../09heapsort
 [index]: ../index
 
-- [Trees](./01trees.md)
+- [Trees](./01trees)

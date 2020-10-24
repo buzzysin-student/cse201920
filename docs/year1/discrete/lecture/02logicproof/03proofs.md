@@ -85,7 +85,7 @@ Therefore, by the inductive hypothesis, since the property holds for $k=1$ and f
 
 In proof by contradiction, it is assumed that the property is false. The proof follows as normal, except that the final result is expected to be false, which implies that the property is actually true.
 
-> See [this proof](../01numtheory/01numbersets.md#proof-irrational-numbers).
+> See [this proof](../01numtheory/01numbersets#proof-irrational-numbers).
 
 ### Contrapositive proof
 

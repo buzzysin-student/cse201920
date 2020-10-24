@@ -4,4 +4,4 @@
 
 - [Induction and O-Notation Recap](./01recap/index)
 - [Interval Scheduling and Graphs](./02intervalgraph/index)
-- [More Graphs](./03graphs/index.md)
+- [More Graphs](./03graphs/index)

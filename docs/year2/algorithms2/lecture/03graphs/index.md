@@ -6,7 +6,7 @@
 [next]: ./
 [index]: ./
 
-- [Directed Euler Walks](./01induction.md)
-- [Hamilton Cycles](./02onotation.md)
+- [Directed Euler Walks](./01induction)
+- [Hamilton Cycles](./02onotation)
 - [Shaking Hands]()
 - [Trees]()
