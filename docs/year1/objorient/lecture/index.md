@@ -1,6 +1,6 @@
 # Module - Object-oriented Programming
 
-[Module Contents](/README.md)
+[Module Contents](../../../README.md)
 
 ## Table of contents
 

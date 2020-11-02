@@ -1,6 +1,6 @@
 # Module - Algorithms
 
-[Module Contents](/README.md)
+[Module Contents](../../../README.md)
 
 - [1 - Introduction](./01introduction/index)
 - [2 - O-notation](./02onotation/index)

@@ -1,6 +1,6 @@
 # Module - Linear Circuits
 
-[Module Contents](/README.md)
+[Module Contents](../../../README.md)
 
 - [1 - Passive elements](./01intro/index)
 - [2 - Nodal Analysis](./02nodal/index)

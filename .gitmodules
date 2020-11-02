@@ -16,3 +16,9 @@
 [submodule "objorient"]
 	path = year1/objorient
 	url = git@github.com:Johno0/UoB_Javaness_xoxo
+[submodule "csa-lab-5"]
+	path = year2/compsysA/labs/csa-lab-5
+	url = git@github.com:buzzysin/csa-lab-5
+[submodule "csa-lab-7"]
+	path = year2/compsysA/labs/csa-lab-7
+	url = git@github.com:buzzysin/csa-lab-7

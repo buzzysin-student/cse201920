@@ -1,6 +1,6 @@
 # Module - Introduction to Computer Architecture <!-- omit in toc -->
 
-[Module Contents](/README.md)
+[Module Contents](../../../README.md)
 
 This module was observed over three teaching blocks. This section is partitioned due to the nature of delivery.
 

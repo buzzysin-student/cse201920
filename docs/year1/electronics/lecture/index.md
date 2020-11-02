@@ -1,6 +1,6 @@
 # Module - Electronics 1
 
-[Module Contents](/README.md)
+[Module Contents](../../../README.md)
 
 - [1 - Signals and representation](01signal/index)
 - [2 - Introduction to Amplifiers](02amplifiers/index)

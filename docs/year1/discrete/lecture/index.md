@@ -1,6 +1,6 @@
 # Module - Discrete Mathematics <!-- omit in toc-->
 
-[Module Contents](/README.md)
+[Module Contents](../../../README.md)
 
 This module was taught over three teaching blocks.
 
