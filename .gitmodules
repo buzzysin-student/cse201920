@@ -22,3 +22,6 @@
 [submodule "csa-lab-7"]
 	path = year2/compsysA/labs/csa-lab-7
 	url = git@github.com:buzzysin/csa-lab-7
+[submodule "csa-cw"]
+	path = year2/compsysA/labs/csa-cw
+	url = git@github.com:Johno0/CompSysACW
