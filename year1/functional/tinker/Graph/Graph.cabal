@@ -1,0 +1,73 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: c0d89177d7023dffb390eeb8082143d2541ea2c918371d26af11ad360e1d287c
+
+name:           Graph
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/Graph#readme>
+homepage:       https://github.com/githubuser/Graph#readme
+bug-reports:    https://github.com/githubuser/Graph/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/Graph
+
+library
+  exposed-modules:
+      Base
+      Edge
+      Extended.All
+      Extended.Edge
+      Extended.Graph
+      Extended.Vertex
+      Operators
+      Vertex
+  other-modules:
+      Paths_Graph
+  hs-source-dirs:
+      src
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+executable Graph-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_Graph
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Graph
+    , QuickCheck
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite Graph-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Tests
+      Paths_Graph
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Graph
+    , QuickCheck
+    , base >=4.7 && <5
+  default-language: Haskell2010

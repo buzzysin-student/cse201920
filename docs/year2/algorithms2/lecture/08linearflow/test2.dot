@@ -1,0 +1,30 @@
+digraph {
+Positive {getPositive = 22} -> Positive {getPositive = 6} [ label="-25" ];
+Positive {getPositive = 1} -> Positive {getPositive = 3} [ label="1" ];
+Positive {getPositive = 13} -> Positive {getPositive = 30} [ label="6" ];
+Positive {getPositive = 5} -> Positive {getPositive = 7} [ label="10" ];
+Positive {getPositive = 19} -> Positive {getPositive = 30} [ label="-24" ];
+Positive {getPositive = 8} -> Positive {getPositive = 6} [ label="5" ];
+Positive {getPositive = 14} -> Positive {getPositive = 1} [ label="-8" ];
+Positive {getPositive = 17} -> Positive {getPositive = 16} [ label="-19" ];
+Positive {getPositive = 23} -> Positive {getPositive = 23} [ label="1" ];
+Positive {getPositive = 5} -> Positive {getPositive = 3} [ label="3" ];
+Positive {getPositive = 2} -> Positive {getPositive = 19} [ label="-16" ];
+Positive {getPositive = 12} -> Positive {getPositive = 19} [ label="23" ];
+Positive {getPositive = 8} -> Positive {getPositive = 22} [ label="8" ];
+Positive {getPositive = 7} -> Positive {getPositive = 29} [ label="-17" ];
+Positive {getPositive = 29} -> Positive {getPositive = 25} [ label="25" ];
+Positive {getPositive = 29} -> Positive {getPositive = 28} [ label="18" ];
+Positive {getPositive = 6} -> Positive {getPositive = 28} [ label="26" ];
+Positive {getPositive = 22} -> Positive {getPositive = 24} [ label="-27" ];
+Positive {getPositive = 9} -> Positive {getPositive = 13} [ label="30" ];
+Positive {getPositive = 10} -> Positive {getPositive = 12} [ label="19" ];
+Positive {getPositive = 4} -> Positive {getPositive = 19} [ label="16" ];
+Positive {getPositive = 27} -> Positive {getPositive = 30} [ label="27" ];
+Positive {getPositive = 13} -> Positive {getPositive = 8} [ label="-17" ];
+Positive {getPositive = 3} -> Positive {getPositive = 19} [ label="8" ];
+Positive {getPositive = 25} -> Positive {getPositive = 19} [ label="-11" ];
+Positive {getPositive = 13} -> Positive {getPositive = 13} [ label="4" ];
+Positive {getPositive = 26} -> Positive {getPositive = 29} [ label="2" ];
+Positive {getPositive = 3} -> Positive {getPositive = 30} [ label="-30" ];
+}
