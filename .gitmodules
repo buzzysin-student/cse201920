@@ -25,3 +25,4 @@
 [submodule "csa-cw"]
 	path = year2/compsysA/labs/csa-cw
 	url = git@github.com:Johno0/CompSysACW
+	branch = Distributed2
