@@ -1,9 +1,7 @@
+#include "stack.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "stack.h"
-
-
 
 // ? This is the accumulator. It can be used to do things.
 int acc;
@@ -38,6 +36,7 @@ int IGNORE_CHAR(char *c) {
 void JUMP() {
   rewind(f);
   int p = 0;
+  int out = 0;
   while (p != pc) {
     char *c = malloc(sizeof(char)* 2);
     c[0] = fgetc(f), c[1] = 0;
@@ -60,8 +59,7 @@ void JUMP_LOGIC(char *c, int *i) {
     if (strlen(ls) == MEMLIMIT - 1) {
       perror("Stack Overflow"), exit(EXIT_FAILURE);
     }
-    pc = ls[STACKLENGTH];
-    pc -= 1;
+    pc = ls[STACKLENGTH] - 1;
   }
 
   if (EQUAL_CHAR(c, "]")) JUMP();
@@ -89,6 +87,7 @@ void parse(char *c) {
 
   if (EQUAL_CHAR(c, "*")) sw = !sw;
 
+  if (EQUAL_CHAR(c, "0")) *i = 0;
   if (EQUAL_CHAR(c, "+")) *i += 1;
   if (EQUAL_CHAR(c, "-")) *i -= 1;
   if (EQUAL_CHAR(c, "v")) *i += 5;

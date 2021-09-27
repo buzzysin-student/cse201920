@@ -4,6 +4,11 @@ import (
 	"fmt"
 )
 
+// Yes, it's quicksort again. It's my favourite
+// sorting algorithm, okay?
+
+// Author: buzzysin
+
 func main() {
 	var s = make([]int, 10)
 	s[0], s[1], s[2], s[3], s[4] = 9, 2, 8, 3, 7

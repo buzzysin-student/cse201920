@@ -1,34 +1,48 @@
+{--
+! What *might* be the answers to an exam I took
+! in January of 2020.
+
+! University, please don't sue me.
+! Author: buzzysin
+
+*** P.S. Some answers are definitely wrong!
+--}
 import Data.Char
 import Test.QuickCheck
 
-data Road a = City a | Fork (Road a) (Road a) 
-  deriving Show
+data Road a = City a | Fork (Road a) (Road a)
+  deriving (Show)
+
 type Name = String
 
-data Play = O | X 
+data Play = O | X
   deriving (Eq, Show)
 
-data NC = NC [[ Maybe Play ]]
-  deriving Show
+data NC = NC [[Maybe Play]]
+  deriving (Show)
 
-exampleNC :: NC 
-exampleNC = NC [
-    [Just O, Just X, Nothing],
-    [Just X, Just O, Just X],
-    [Nothing, Just X, Just O]
-  ]
+exampleNC :: NC
+exampleNC =
+  NC
+    [ [Just O, Just X, Nothing],
+      [Just X, Just O, Just X],
+      [Nothing, Just X, Just O]
+    ]
 
 myCities :: Road Name
-myCities = (Fork 
-  (Fork
-    (City "Bristol")
-    (Fork 
-      (City "Blackpool")
-      (City "Burnley")))
-  (Fork 
-    (City "Bath") 
-    (City "Birmingham"))
-  )
+myCities =
+  Fork
+    ( Fork
+        (City "Bristol")
+        ( Fork
+            (City "Blackpool")
+            (City "Burnley")
+        )
+    )
+    ( Fork
+        (City "Bath")
+        (City "Birmingham")
+    )
 
 myCitiesNames :: [Name]
 myCitiesNames = ["Bristol", "Blackpool", "Burnley", "Bath", "Birmingham"]
@@ -51,7 +65,7 @@ cities (City c) = [c]
 cities (Fork r1 r2) = (cities r1) ++ (cities r2)
 
 -- ? 2d)
-mapCities :: (a->b) -> Road a -> Road b
+mapCities :: (a -> b) -> Road a -> Road b
 mapCities f (City c) = City (f c)
 mapCities f (Fork r1 r2) = Fork r1' r2'
   where
@@ -65,7 +79,7 @@ cityUpper = mapCities nameUpper
 -- ? 2e)
 rename :: Road Name -> [Name] -> Road Name
 rename r [] = r
-rename (City c) (n:ns) = City n
+rename (City c) (n : ns) = City n
 rename (Fork r1 r2) ns = Fork r1' r2'
   where
     n1 = take (size r1) ns
@@ -79,6 +93,7 @@ rename (Fork r1 r2) ns = Fork r1' r2'
 
 -- ? 2f)
 prop_Something rd ns = size rd == length ns ==> cities (cityUpper rd) == ns
+
 prop_SameSize rd ns = size rd == size (rename rd ns)
 
 -- ? 3a)
@@ -115,5 +130,5 @@ gridEmpty (NC grid) = foldr ((&&) . rowEmpty) True (grid)
 --   writeFile name strGame
 
 -- ? 3b)
-map' :: (a->b) -> [a] -> [b]
+map' :: (a -> b) -> [a] -> [b]
 map' f = foldr ((:) . f) []
