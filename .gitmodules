@@ -26,3 +26,6 @@
 	path = year2/compsysA/labs/csa-cw
 	url = git@github.com:Johno0/CompSysACW
 	branch = Distributed2
+[submodule "year3/erts/embedded-rts"]
+	path = year3/erts/embedded-rts
+	url = https://github.com/buzzysin/embedded-rts
