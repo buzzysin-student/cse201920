@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../shared.cpp"
+#include "vect.cpp"
 
 using vf = std::vector<float>;
 
@@ -16,16 +17,13 @@ public:
 
     x1 = from;
     x2 = to;
-
-    if (x2 == x1)
-    {
-      std::cerr << "Interpolation range cannot be zero\n";
-      throw -1;
-    }
   }
 
   float gradient()
   {
+    if (x2 == x1)
+      return 1;
+
     return (y2 - y1) / (x2 - x1);
   }
 
@@ -34,7 +32,8 @@ public:
     return y1 + gradient() * (value - x1);
   }
 
-  float operator()(float value){
+  float operator()(float value)
+  {
     return get(value);
   }
 
@@ -52,11 +51,6 @@ public:
 
       x1 = from;
       x2 = to;
-
-      if (x2 == x1)
-      {
-        throw "Interpolation range cannot be zero";
-      }
     }
 
     Vector(glm::vec3 start, glm::vec3 stop, float from, float to)
@@ -73,11 +67,10 @@ public:
       size_t size = y1.size();
       vf gradient(size, 0.0f);
 
-      for (size_t i = 0; i < size; i++)
-      {
-        Interpolate interpolate(y1[i], y2[i], x1, x2);
-        gradient[i] = interpolate.gradient();
-      }
+      if (x1 == x2)
+        return y1 - y2;
+
+      gradient = (y1 - y2) / (x1 - x2);
 
       return gradient;
     }
@@ -99,10 +92,7 @@ public:
       vf result(y1.size(), 0.0f);
       vf m = gradient();
 
-      for (size_t i = 0; i < result.size(); i++)
-      {
-        result[i] = y1[i] + m[i] * (value - x1);
-      }
+      result = y1 + m * (value - x1);
 
       return result;
     }
@@ -119,8 +109,29 @@ public:
       return result;
     }
 
-    vf operator()(float value) {
+    vf operator()(float value)
+    {
       return getVector(value);
     }
+
+    std::ostream &operator<<(std::ostream &os)
+    {
+      return os << "Interp{"
+                << "y1 " << y1 << "\n"
+                << "y2 " << y2 << "\n"
+                << "x1 " << x1 << "\n"
+                << "x2 " << x2 << "\n"
+                << "}";
+    }
   };
+
+  std::ostream &operator<<(std::ostream &os)
+  {
+    return os << "Interp{"
+              << "y1 " << y1 << "\n"
+              << "y2 " << y2 << "\n"
+              << "x1 " << x1 << "\n"
+              << "x2 " << x2 << "\n"
+              << "}";
+  }
 };

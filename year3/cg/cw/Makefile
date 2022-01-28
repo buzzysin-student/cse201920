@@ -1,4 +1,4 @@
-PROJECT_NAME := Renderer
+PROJECT_NAME := Main
 
 BUILD_DIR := build
 

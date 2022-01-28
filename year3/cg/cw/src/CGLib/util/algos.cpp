@@ -4,7 +4,7 @@
 
 // Sorts a vector of floats (not in place, likely unstable, returns a copy)
 template <typename T>
-std::vector<T> sortVector(std::vector<T> v, int (*comparison)(T, T))
+std::vector<T> sortVector(std::vector<T> v, std::function<int(T, T)> comparison)
 {
   if (v.size() == 0 || v.size() == 1)
     return std::vector<T>(v);
@@ -53,4 +53,35 @@ std::vector<T> sortVector(std::vector<T> v, int (*comparison)(T, T))
   }
 
   return rslt;
+}
+
+template <typename T, typename U>
+std::vector<U> mapVector(std::function<U(T)> f, const std::vector<T> &v)
+{
+  std::vector<U> u(v.size());
+
+  for (size_t i = 0; i < v.size(); i++)
+  {
+    u[i] = f(v[i]);
+  }
+
+  return u;
+}
+
+template <typename T, typename U>
+std::vector<U> mapVector2(U (*f)(T), const std::vector<T> &v)
+{
+  std::vector<U> u(v.size());
+
+  for (size_t i = 0; i < v.size(); i++)
+  {
+    u[i] = f(v[i]);
+  }
+
+  return u;
+}
+
+float radians(float degrees)
+{
+  return degrees * M_PI / 180.0f;
 }

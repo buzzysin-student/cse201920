@@ -1,9 +1,16 @@
 #pragma once
 
-void writeLog(char *text)
+#include "text.cpp"
+
+void writeLog(const char *file, int line, const char *text)
 {
 #ifdef LOG
   if (LOG)
-    std::cout << __FILE__ << ": " << text;
+    std::cout << file << ":" << line << ": " << text;
 #endif
+}
+
+void writeLog(const char *file, int line, std::string text)
+{
+  writeLog(file, line, text.c_str());
 }

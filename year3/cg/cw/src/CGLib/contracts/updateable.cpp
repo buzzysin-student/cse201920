@@ -1,6 +1,6 @@
 #pragma once
 
-class WindowWrapper;
+class WindowInterface;
 
 class Updatable
 {
@@ -12,6 +12,6 @@ public:
   class WithWrapper
   {
   public:
-    virtual void update(WindowWrapper wrapper) = 0;
+    virtual void update(WindowInterface &interface) = 0;
   };
 };

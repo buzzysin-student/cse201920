@@ -1,6 +1,6 @@
 #pragma once
 
-class WindowWrapper;
+class WindowInterface;
 
 class Renderable
 {
@@ -12,6 +12,12 @@ public:
   class WithWrapper
   {
   public:
-    virtual void render(WindowWrapper wrapper) = 0;
+    virtual void render(WindowInterface &interface) = 0;
+  };
+
+  class WithItems
+  {
+  public:
+    virtual void render(WindowInterface &interface, std::vector<Item> item) = 0;
   };
 };

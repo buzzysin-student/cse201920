@@ -1,11 +1,19 @@
 #pragma once
 
-#include "natives.cpp"
+#include "text.cpp"
+#include "log.cpp"
+#include "throttle.cpp"
+
+#include "vect.cpp"
+#include "map.cpp"
+
+#include "spatial.cpp"
+
 #include "interpolation.cpp"
+
 #include "algos.cpp"
 #include "colour.cpp"
+
 #include "drawing.cpp"
 
-#include "load.cpp"
-
-#include "log.cpp"
+#include "loader/all.cpp"

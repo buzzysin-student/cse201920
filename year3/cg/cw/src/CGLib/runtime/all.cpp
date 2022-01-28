@@ -2,5 +2,6 @@
 
 #include "engine.cpp"
 #include "timer.cpp"
-#include "wrapper.cpp"
+#include "window-settings.cpp"
+#include "window-interface.cpp"
 #include "environment.cpp"

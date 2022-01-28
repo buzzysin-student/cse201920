@@ -1,15 +1,17 @@
 #pragma once
 
-class WindowWrapper;
+class WindowInterface;
 
 class Initable
 {
 protected:
   // ? Call when starting operation
   virtual void init() = 0;
+
 public:
-  class WithWrapper {
-    public: 
-      virtual void init(WindowWrapper wrapper) = 0;
+  class WithWrapper
+  {
+  public:
+    virtual void init(WindowInterface &interface) = 0;
   };
 };
