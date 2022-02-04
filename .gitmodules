@@ -29,3 +29,6 @@
 [submodule "year3/erts/embedded-rts"]
 	path = year3/erts/embedded-rts
 	url = https://github.com/buzzysin/embedded-rts
+[submodule "year3/industrial-project"]
+	path = year3/industrial-project
+	url = git@github.com:buzzysin-student/industrial-project
